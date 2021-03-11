@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../library/include/math_helpers.h
+
+/home/student/CLionProjects/atom_sr_1200_07/ziemecki/introduction/program/src/main.cpp
+iostream
+-
+math_helpers.h
+/home/student/CLionProjects/atom_sr_1200_07/ziemecki/introduction/program/src/math_helpers.h
+
