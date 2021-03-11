@@ -4,7 +4,8 @@
 using namespace std;
 
 int main() {
-    std::cout << "Hello World!";
+    cout << "Hello World!" << endl;
+    cout << "Co jest" << endl;
     int i=factorial(5);
     cout<<i<<endl;
     return 0;

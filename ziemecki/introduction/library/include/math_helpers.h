@@ -1,5 +1,5 @@
-#ifndef MATH_HELPERS_H
-#define MATH_HELPERS_H
+#ifndef MathLibrary
+#define MathLibrary
 unsigned long long factorial(unsigned int n);
 #endif
 
