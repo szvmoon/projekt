@@ -1,14 +1,19 @@
 #include <iostream>
+#include <model/Client.h>
 #include "math_helpers.h"
 
 using namespace std;
 
 int main ()
 {
-    cout << "hello world!";
+    Client c1("jacek", "jackowski","694202137");
+    Client *c2 = new Client("kamil","kamilek","9");
     cout << endl;
+    cout << c1.getClientInfo();
+    cout << c2->getClientInfo();
+    cout << endl;
+    c1.setClientInfo("","kutas");
+    cout << c1.getClientInfo();
 
-    int b=factorial(5);
-    cout << b << endl;
-    return 0;
+    delete c2;
 }
