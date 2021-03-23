@@ -6,8 +6,14 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+<<<<<<< HEAD:.gitignore
 
 #to tez ignoruj
 build
 cmake-build-debug
+=======
+#ignoruj tez
+cmake-build-debug
+build
+>>>>>>> e38e52194e5e90f570af93c2598e18ee5369fd2d:.gitignore
 .idea
