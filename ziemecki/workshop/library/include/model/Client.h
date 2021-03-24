@@ -16,6 +16,7 @@ public:
     //konstruktor
     //lista inicjalizacyjna konstruktora
     Client(std::string name, std::string surname, std::string pid);
+
     //destruktor
     ~Client();
 
@@ -25,12 +26,15 @@ public:
     //gettery
 
     std::string get_firstName() const;
+
     std::string get_lastName() const;
+
     std::string get_personalID() const;
 
     //settery
 
     void set_firstName(std::string);
+
     void set_lastName(std::string);
 };
 
