@@ -1,6 +1,5 @@
 #include <iostream>
 #include <model/Client.h>
-#include "math_helpers.h"
 
 using namespace std;
 

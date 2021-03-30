@@ -19,6 +19,8 @@ public:
     Client(string, string, string);
     ~Client();
     string getClientInfo () const;
+    string getfirstName ();
+    string getlastName ();
     void setfirstName (string);
     void setlastName (string);
 

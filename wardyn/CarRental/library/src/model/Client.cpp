@@ -15,7 +15,14 @@ string Client::getClientInfo () const
 {
     return ("Client, "+firstName+", "+lastName+", "+personalID+"\n");
 }
-
+string Client::getfirstName()
+{
+    return (firstName);
+}
+string Client::getlastName()
+{
+    return (lastName);
+}
 void Client::setfirstName (string name)
 {
     if (name != "")
@@ -23,7 +30,6 @@ void Client::setfirstName (string name)
         firstName = name;
     }
 }
-
 void Client::setlastName(string surname)
 {
     if (surname!="")
@@ -31,4 +37,6 @@ void Client::setlastName(string surname)
         lastName = surname;
     }
 }
+
+
 
