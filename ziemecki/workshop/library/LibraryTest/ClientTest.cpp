@@ -38,15 +38,10 @@ BOOST_AUTO_TEST_SUITE(Setters)
         std::string emptyName = "";
 
         Klient->set_firstName(emptyName);
-
         bool NameChangeGood = Klient->get_firstName() == name;
-
         BOOST_TEST(NameChangeGood);
-
         Klient->set_firstName(testName);
-
         NameChangeGood = Klient->get_firstName() == testName;
-
         BOOST_TEST(NameChangeGood);
     }
 
@@ -55,15 +50,10 @@ BOOST_AUTO_TEST_SUITE(Setters)
         std::string emptySurname = "";
 
         Klient->set_lastName(emptySurname);
-
         bool lastNameChangeGood = Klient->get_lastName() == surname;
-
         BOOST_TEST(lastNameChangeGood);
-
         Klient->set_lastName(testSurname);
-
         lastNameChangeGood = Klient->get_lastName() == testSurname;
-
         BOOST_TEST(lastNameChangeGood);
     }
 
