@@ -26,5 +26,5 @@ set(CMAKE_VERBOSE_MAKEFILE TRUE)
 #Uwzględnij podprojekt znajdujący się w podkatalogu program. Musi być w nim pliki CMakeLists.txt
 add_subdirectory(program)
 add_subdirectory(library)
-#Włączenie testów powoduje pojawienie się celu test w makefiles
+#Włączenie testów powoduje pojawienie się celu LibraryTest w makefiles
 enable_testing()
