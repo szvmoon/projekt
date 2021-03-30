@@ -19,7 +19,9 @@ public:
     Client(string, string, string);
     ~Client();
     string getClientInfo () const;
-    void setClientInfo (string, string);
+    void setfirstName (string);
+    void setlastName (string);
+
 };
 
 #endif //CARRENTALPROJECT_CLIENT_H

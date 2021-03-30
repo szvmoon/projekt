@@ -12,7 +12,8 @@ int main ()
     cout << c1.getClientInfo();
     cout << c2->getClientInfo();
     cout << endl;
-    c1.setClientInfo("Pamela","Anderson");
+    c1.setfirstName("Pamela");
+    c1.setlastName("Jablczan");
     cout << c1.getClientInfo();
 
     delete c2;

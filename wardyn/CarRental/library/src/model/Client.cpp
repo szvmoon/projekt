@@ -16,12 +16,16 @@ string Client::getClientInfo () const
     return ("Client, "+firstName+", "+lastName+", "+personalID+"\n");
 }
 
-void Client::setClientInfo (string name, string surname)
+void Client::setfirstName (string name)
 {
     if (name != "")
     {
         firstName = name;
     }
+}
+
+void Client::setlastName(string surname)
+{
     if (surname!="")
     {
         lastName = surname;
