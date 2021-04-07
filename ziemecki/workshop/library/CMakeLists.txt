@@ -17,18 +17,18 @@ include_directories(
 )
 
 set(SOURCE_TEST_FILES
-        LibraryTest/master.cpp
-        LibraryTest/ClientTest.cpp) # tu w przyszłości będą dodawane pliki źródłowe testów
+        test/master.cpp
+        test/ClientTest.cpp) # tu w przyszłości będą dodawane pliki źródłowe testów
 
 add_executable (LibraryTest ${SOURCE_TEST_FILES})
 
-#dołącz bibliotekę z testowanymi klasami oraz bibliotekę boost.LibraryTest do programu testów
+#dołącz bibliotekę z testowanymi klasami oraz bibliotekę boost.test do programu testów
 target_link_libraries (LibraryTest
         Library
         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
         )
 
-#dodaj LibraryTest TestBiblioteki1. Instrukcji cmake add_test może być wiele.
+#dodaj test TestBiblioteki1. Instrukcji cmake add_test może być wiele.
 #Dodatkowe parametry wpływają na szczegółowość generowanego raportu. Standardowo znajduje się on w Testing/Temporary.
 add_test(LibraryTest1 LibraryTest
         --report_level=detailed

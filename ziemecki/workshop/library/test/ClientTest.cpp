@@ -15,18 +15,15 @@ BOOST_AUTO_TEST_SUITE(Constructor)
 
 
     BOOST_AUTO_TEST_CASE(NameTest) {
-        bool NameGood = Klient->get_firstName() == name;
-        BOOST_TEST(NameGood);
+        BOOST_TEST(Klient->get_firstName() == name);
     }
 
     BOOST_AUTO_TEST_CASE(SurnameTest) {
-        bool SurnameGood = Klient->get_lastName() == surname;
-        BOOST_TEST(SurnameGood);
+        BOOST_TEST(Klient->get_lastName() == surname);
     }
 
     BOOST_AUTO_TEST_CASE(PIDTest) {
-        bool PIDGood = Klient->get_personalID() == PID;
-        BOOST_TEST(PIDGood);
+        BOOST_TEST(Klient->get_personalID() == PID);
     }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -38,11 +35,9 @@ BOOST_AUTO_TEST_SUITE(Setters)
         std::string emptyName = "";
 
         Klient->set_firstName(emptyName);
-        bool NameChangeGood = Klient->get_firstName() == name;
-        BOOST_TEST(NameChangeGood);
+        BOOST_TEST(Klient->get_firstName() == name);
         Klient->set_firstName(testName);
-        NameChangeGood = Klient->get_firstName() == testName;
-        BOOST_TEST(NameChangeGood);
+        BOOST_TEST(Klient->get_firstName() == testName);
     }
 
     BOOST_AUTO_TEST_CASE(lastnameSetter) {
@@ -50,11 +45,9 @@ BOOST_AUTO_TEST_SUITE(Setters)
         std::string emptySurname = "";
 
         Klient->set_lastName(emptySurname);
-        bool lastNameChangeGood = Klient->get_lastName() == surname;
-        BOOST_TEST(lastNameChangeGood);
+        BOOST_TEST(Klient->get_lastName() == surname);
         Klient->set_lastName(testSurname);
-        lastNameChangeGood = Klient->get_lastName() == testSurname;
-        BOOST_TEST(lastNameChangeGood);
+        BOOST_TEST(Klient->get_lastName() == testSurname);
     }
 
 
