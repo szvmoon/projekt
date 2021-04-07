@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.4)
 project(Library)
 
 set(SOURCE_FILES
-    src/model/Client.cpp include/model/Client.h test/master.cpp test/ClientTest.cpp)
+    src/model/Client.cpp include/model/Client.h test/master.cpp test/ClientTest.cpp src/model/Address.cpp include/model/Address.h test/AddressTest.cpp src/model/Vehicle.cpp include/model/Vehicle.h test/VehicleTest.cpp src/model/Rent.cpp include/model/Rent.h test/RentTest.cpp)
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(Library ${SOURCE_FILES})
 
@@ -18,7 +18,7 @@ include_directories(
 
 set(SOURCE_TEST_FILES) # tu w przyszłości będą dodawane pliki źródłowe testów
 
-add_executable (LibraryTest ${SOURCE_TEST_FILES}test/master.cpp test/ClientTest.cpp)
+add_executable (LibraryTest ${SOURCE_TEST_FILES}test/master.cpp test/ClientTest.cpp test/AddressTest.cpp test/VehicleTest.cpp)
 
 #dołącz bibliotekę z testowanymi klasami oraz bibliotekę boost.test do programu testów
 target_link_libraries (LibraryTest
