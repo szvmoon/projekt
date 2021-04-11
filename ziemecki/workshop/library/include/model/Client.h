@@ -6,6 +6,7 @@
 #define CARRENTAL_CLIENT_H
 
 #include <string>
+#include <iostream>
 
 class Client {
 private:
