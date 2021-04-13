@@ -5,38 +5,57 @@
 #ifndef CARRENTAL_CLIENT_H
 #define CARRENTAL_CLIENT_H
 
-#include <string>
 #include <iostream>
+#include "model/Address.h"
+#include "model/Rent.h"
+#include <vector>
 
+
+class Rent;
 class Client {
 private:
     std::string firstName;
     std::string lastName;
     const std::string personalID;
+    Address *address;
+    std::vector <Rent*> currentRents;
+
 public:
     //konstruktor
     //lista inicjalizacyjna konstruktora
-    Client(std::string name, std::string surname, std::string pid);
+    Client(const std::string&, const std::string&, const std::string&, Address *);
 
     //destruktor
     ~Client();
 
-    //metody/operacje klasy
-    std::string getClientInfo() const;
-
     //gettery
 
-    std::string get_firstName() const;
+    const std::string get_firstName() const;
 
-    std::string get_lastName() const;
+    const std::string get_lastName() const;
 
-    std::string get_personalID() const;
+    const std::string get_personalID() const;
+
+    const Address *get_Address() const;
+
+    const void get_Rents() const;
+
+    const void getFullClientInfo() const;
+
+    const std::string getClientInfo() const;
 
     //settery
 
-    void set_firstName(std::string);
+    void set_firstName(const std::string&);
 
-    void set_lastName(std::string);
+    void set_lastName(const std::string&);
+
+    void set_Address(Address *);
+
+    //metody/operacje klasy
+
+    void add_Rent(Rent *);
+
 };
 
 
