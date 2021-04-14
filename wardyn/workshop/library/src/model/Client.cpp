@@ -10,12 +10,16 @@ using namespace std;
 
 Client::Client(const string &firstName,const string &lastName,const string &personalID, Address *address) :firstName(firstName), lastName(lastName), personalID(personalID), address(address)
 {
-    Client.setRent(this);
+
 }
 Client::~Client() {}
 const string Client::getClientInfo () const
 {
-    return ("Client, "+firstName+", "+lastName+", "+personalID+", "+address->getAddressInfo()+"\n");
+    return ("Client, "+firstName+", "+lastName+", "+personalID+", "+address->getAddressInfo());
+}
+const string Client::getFullClientInfo () const
+{
+    return (this->getClientInfo()+to_string(currentRents.size()));
 }
 const string Client::getfirstName() const
 {
@@ -29,10 +33,10 @@ const Address* Client::getaddresspointer() const
 {
     return address;
 }
-const Rent* Client::getRent(unsigned int &i) const
+/*const Rent* Client::getRent() const
 {
-    return currentRents[i];
-}
+    return currentRents.begin();
+}*/
 void Client::setfirstName (const string &name)
 {
     if (name != "")
@@ -54,11 +58,11 @@ void Client::setaddresspointer( Address* pointer)
         address = pointer;
     }
 }
-int Client::setRent(unsigned int &i, Rent* pointer)
+void Client::setRent(Rent* pointer)
 {
     if (pointer != nullptr)
     {
-        currentRents[i]=pointer;
+        currentRents.push_back(pointer);
     }
 }
 

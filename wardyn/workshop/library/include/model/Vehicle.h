@@ -13,14 +13,17 @@ class Vehicle
 private:
     string plateNumber;
     int basePrice;
+    bool rented=false;
 public:
     Vehicle(const string&, const int&);
     ~Vehicle();
     const string getVehicleInfo () const;
     const string getplateNumber () const;
+    const string getrented () const;
     const int getbasePrice () const;
     void setplateNumber (const string&);
     void setbasePrice (const int&);
+    void setrented (bool);
 };
 
 #endif //CARRENTALPROJECT_VEHICLE_H
