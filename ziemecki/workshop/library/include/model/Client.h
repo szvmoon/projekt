@@ -16,7 +16,7 @@ class Client {
 private:
     std::string firstName;
     std::string lastName;
-    const std::string personalID;
+    std::string personalID;
     Address *address;
     std::vector <Rent*> currentRents;
 
@@ -30,19 +30,15 @@ public:
 
     //gettery
 
-    const std::string get_firstName() const;
+    const std::string& get_firstName() const;
 
-    const std::string get_lastName() const;
+    const std::string& get_lastName() const;
 
-    const std::string get_personalID() const;
+    const std::string& get_personalID() const;
 
     const Address *get_Address() const;
 
-    const void get_Rents() const;
-
-    const void getFullClientInfo() const;
-
-    const std::string getClientInfo() const;
+    void get_Rents() const;
 
     //settery
 
@@ -55,6 +51,10 @@ public:
     //metody/operacje klasy
 
     void add_Rent(Rent *);
+
+    void getFullClientInfo() ;
+
+    std::string getClientInfo() ;
 
 };
 

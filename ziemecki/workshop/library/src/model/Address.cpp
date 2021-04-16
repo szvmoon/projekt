@@ -6,21 +6,15 @@
 
 using namespace std;
 
-Address::Address(string bCity, string bStreet, string bNumber) : city(bCity), street(bStreet), number(bNumber) {}
+Address::Address(const string &bCity,const string &bStreet,const string &bNumber) : city(bCity), street(bStreet), number(bNumber) {}
 
 Address::~Address() {}
 
-string Address::get_City() const { return city; }
+const string& Address::get_City() const { return city; }
 
-string Address::get_Street() const { return street; }
+const string& Address::get_Street() const { return street; }
 
-string Address::get_Number() const { return number; }
-
-void Address::set_City(string tCity) { city = tCity; }
-
-void Address::set_Street(string tStreet) { street = tStreet; }
-
-void Address::set_Number(string tNumber) { number = tNumber; }
+const string& Address::get_Number() const { return number; }
 
 string Address::getAddressInfo() { return "Address " + city + " " + street + " " + number; }
 

@@ -15,15 +15,15 @@ Client::Client(const string &name, const string &surname, const string &pid, Add
 Client::~Client() {}
 
 
-const string Client::getClientInfo() const {
+string Client::getClientInfo() {
     return("Client " + firstName + " " + lastName + " " + personalID + " " + address->getAddressInfo() + "\n");
 }
 
-const string Client::get_firstName() const { return firstName; }
+const string& Client::get_firstName() const { return firstName; }
 
-const string Client::get_lastName() const { return lastName; }
+const string& Client::get_lastName() const { return lastName; }
 
-const string Client::get_personalID() const { return personalID; }
+const string& Client::get_personalID() const { return personalID; }
 
 const Address *Client::get_Address() const { return address; }
 
@@ -47,14 +47,14 @@ void Client::add_Rent(Rent *ptr) {
         currentRents.push_back(ptr);
 }
 
-const void Client::get_Rents() const {
+void Client::get_Rents() const {
     cout<<"Acutal Rents:"<<endl;
     for(int i=0;i<currentRents.size();i++) {
         cout<<currentRents[i]->getRentInfo();
     }
 }
 
-const void Client::getFullClientInfo() const {
+void Client::getFullClientInfo() {
     cout<<getClientInfo();
     get_Rents();
 }

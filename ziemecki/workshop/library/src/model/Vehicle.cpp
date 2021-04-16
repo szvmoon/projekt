@@ -10,9 +10,9 @@ Vehicle::Vehicle(const string &plateNumber, const int &basePrice) : plateNumber(
 
 Vehicle::~Vehicle() {}
 
-const string Vehicle::get_plateNumber() const { return plateNumber; }
+const string& Vehicle::get_plateNumber() const { return plateNumber; }
 
-const int Vehicle::get_basePrice() const { return basePrice; }
+const int& Vehicle::get_basePrice() const { return basePrice; }
 
 void Vehicle::set_plateNumber(const string &pNumber) {
     if (pNumber != "")
@@ -21,12 +21,11 @@ void Vehicle::set_plateNumber(const string &pNumber) {
 
 void Vehicle::set_basePrice(const int &bPrice) { basePrice = bPrice; }
 
-const string Vehicle::getVehicleInfo() const {
-    string basePriceS = to_string(basePrice);
-    return "Vehicle " + plateNumber + " " + basePriceS + "\n";
+string Vehicle::getVehicleInfo() {
+    return ("Vehicle " + plateNumber + " " + to_string(basePrice) + "\n");
 }
 
-const bool Vehicle::isRented() const { return rented; }
+const bool& Vehicle::isRented() const { return rented; }
 
 void Vehicle::set_RentStatus(const bool &status) { rented = status; }
 

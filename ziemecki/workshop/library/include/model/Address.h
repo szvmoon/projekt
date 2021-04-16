@@ -15,26 +15,22 @@ private:
 public:
 
     //Konstruktor i destruktor
-    Address(std::string, std::string, std::string);
+    Address(const std::string&,const std::string&,const std::string&);
 
     ~Address();
 
     //Gettery
-    std::string get_City() const;
+    const std::string& get_City() const;
 
-    std::string get_Street() const;
+    const std::string& get_Street() const;
 
-    std::string get_Number() const;
+    const std::string& get_Number() const;
 
     //Settery
-    void set_City(std::string);
 
-    void set_Street(std::string);
-
-    void set_Number(std::string);
 
     //Metody
-    std::string getAddressInfo();
+    std::string getAddressInfo() ;
 
 
 };

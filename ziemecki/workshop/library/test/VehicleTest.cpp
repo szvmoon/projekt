@@ -35,8 +35,7 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteVehicleFixture)
 
     BOOST_AUTO_TEST_CASE(VehicleMethodsTest) {
         Vehicle *Car = new Vehicle(testplateNumber, testbasePrice);
-        std::string s = std::to_string(testbasePrice);
-        BOOST_TEST(Car->getVehicleInfo() == "Vehicle " + testplateNumber + " " + s + "\n");
+        BOOST_TEST(Car->getVehicleInfo() == "Vehicle " + testplateNumber + " " + std::to_string(testbasePrice) + "\n");
         delete Car;
     }
 

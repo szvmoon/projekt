@@ -18,7 +18,7 @@ class Vehicle;
 
 class Rent {
 private:
-    const int ID;
+    int ID;
     Client *client;
     Vehicle *vehicle;
     pt::ptime beginTime = pt::not_a_date_time;
@@ -26,31 +26,31 @@ private:
 
 public:
     //Konstruktor desturktor
-    Rent(int , Client *, Vehicle *,const pt::ptime &);
+    Rent(const int &, Client *, Vehicle *,const pt::ptime &);
 
     ~Rent();
 
     //Gettery
 
-    const int get_ID() const;
+    const int& get_ID() const;
 
     const Client *get_client() const;
 
     const Vehicle *get_vehicle() const;
 
-    pt::ptime get_beginDate();
+    const pt::ptime& get_beginDate() const;
 
-    pt::ptime get_endDate();
+    const pt::ptime& get_endDate() const;
 
 
     //Metody
-    const std::string getRentInfo() const;
+    const std::string& getRentInfo() const;
 
     int getRentDays();
 
     int getRentCost();
 
-    void endRent(pt::ptime);
+    void endRent(const pt::ptime&);
 
 
 

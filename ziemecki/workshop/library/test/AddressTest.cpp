@@ -12,7 +12,7 @@ struct TestSuiteAddressFixture {
 
 };
 
-BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteAddressFixture)
+BOOST_FIXTURE_TEST_SUITE(TestSuiteAddress, TestSuiteAddressFixture)
 
     BOOST_AUTO_TEST_CASE(AddressConstructorTest) {
         Address *Adres = new Address(testCity, testStreet, testNumber);
@@ -22,14 +22,10 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteAddressFixture)
         delete Adres;
     }
 
-    BOOST_AUTO_TEST_CASE(AddressSettersTest) {
+    BOOST_AUTO_TEST_CASE(AddressMethodsTest) {
         Address *Adres = new Address(testCity, testStreet, testNumber);
-        Adres->set_City("Jaworzno");
-        BOOST_TEST(Adres->get_City() == "Jaworzno");
-        Adres->set_Street("Essunia");
-        BOOST_TEST(Adres->get_Street() == "Essunia");
-        Adres->set_Number("14");
-        BOOST_TEST(Adres->get_Number() == "14");
+        BOOST_TEST(Adres->getAddressInfo() == "Address " + testCity + " " + testStreet + " " + testNumber);
+        delete Adres;
     }
 
 BOOST_AUTO_TEST_SUITE_END()

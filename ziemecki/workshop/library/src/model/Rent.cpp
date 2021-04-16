@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Rent::Rent(int id, Client *c, Vehicle *v, const pt::ptime &beginTime) : ID(id), client(c), vehicle(v),
+Rent::Rent(const int &id, Client *c, Vehicle *v, const pt::ptime &beginTime) : ID(id), client(c), vehicle(v),
                                                                         beginTime(beginTime) {
     client->add_Rent(this);
     if (beginTime.is_not_a_date_time()) {
@@ -14,28 +14,26 @@ Rent::Rent(int id, Client *c, Vehicle *v, const pt::ptime &beginTime) : ID(id), 
     } else {
         this->beginTime = beginTime;
     }
-
     this->endTime = pt::not_a_date_time;
     vehicle->set_RentStatus(true);
 }
 
 Rent::~Rent() {}
 
-const int Rent::get_ID() const { return ID; }
+const int& Rent::get_ID() const { return ID; }
 
 const Client *Rent::get_client() const { return client; }
 
 const Vehicle *Rent::get_vehicle() const { return vehicle; }
 
-const string Rent::getRentInfo() const {
+const string& Rent::getRentInfo() const {
     return (to_string(ID) + " " + client->get_firstName() + " " + client->get_lastName() + " " +
             vehicle->getVehicleInfo());
 }
 
 int Rent::getRentDays() {
-    int daysOfRental;
     pt::time_period period(beginTime, endTime);
-    if (this->vehicle->isRented() == true)
+    if (this->vehicle->isRented())
         return 0;
 
     else if (beginTime == endTime)
@@ -50,18 +48,14 @@ int Rent::getRentCost() {
     return (getRentDays() * this->vehicle->get_basePrice());
 }
 
-void Rent::endRent(pt::ptime now) {
-    if (endTime.is_not_a_date_time()) {
-        this->endTime = pt::second_clock::local_time();
-    } else {
-        this->endTime = now;
-    }
+void Rent::endRent(const pt::ptime &now) {
+    endTime=now;
     this->vehicle->set_RentStatus(false);
 }
 
-pt::ptime Rent::get_beginDate() { return beginTime; }
+const pt::ptime& Rent::get_beginDate() const { return beginTime; }
 
-pt::ptime Rent::get_endDate() { return endTime; }
+const pt::ptime& Rent::get_endDate() const { return endTime; }
 
 
 

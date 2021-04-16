@@ -18,17 +18,16 @@ public:
     ~Vehicle();
 
     //Gettery
-    const std::string get_plateNumber() const;
-    const int get_basePrice() const;
-    const bool isRented() const;
-    const std::string getVehicleInfo() const;
+    const std::string& get_plateNumber() const;
+    const int& get_basePrice() const;
+    const bool& isRented() const;
     //Settery
     void set_plateNumber(const std::string &);
     void set_basePrice(const int&);
     void set_RentStatus(const bool&);
 
     //Metody
-
+    std::string getVehicleInfo();
 };
 
 
