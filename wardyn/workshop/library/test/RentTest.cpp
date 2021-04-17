@@ -14,14 +14,14 @@ struct TestSuiteClientFixture
     Client *testclient1;
     Address *testaddress1;
     Vehicle *testvehicle1;
-
-    TestSuiteClientFixture() {
+    TestSuiteClientFixture()
+    {
         testaddress1 = new Address("Londyn", "Warecka", "13");
         testvehicle1 = new Vehicle("EZG23334",23);
         testclient1= new Client("Bartek", "Sliwa", "69420", testaddress1);
     }
-
-    ~TestSuiteClientFixture() {
+    ~TestSuiteClientFixture()
+    {
         delete testaddress1;
         delete testvehicle1;
         delete testclient1;
@@ -30,11 +30,6 @@ struct TestSuiteClientFixture
 
 BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteClientFixture)
 
-    BOOST_AUTO_TEST_CASE(AssertionsTests)
-    {
-        BOOST_TEST(true, boost::test_tools::tolerance(0.5));
-        BOOST_TEST(true);
-    }
     BOOST_AUTO_TEST_CASE(RentConstructorTest)
     {
         Rent R(testID,testclient1,testvehicle1, testbeginTime);

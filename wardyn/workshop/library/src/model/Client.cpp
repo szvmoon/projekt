@@ -3,9 +3,6 @@
 //
 
 #include "model/Client.h"
-//#include "model/Address.h"
-//#include <iostream>
-
 using namespace std;
 
 Client::Client(const string &firstName,const string &lastName,const string &personalID, Address *address) :firstName(firstName), lastName(lastName), personalID(personalID), address(address){}

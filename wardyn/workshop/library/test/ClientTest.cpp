@@ -9,19 +9,18 @@
 
 struct TestSuiteClientFixture
 {
-
     std::string testFirstName = "Bartek";
     const string testLastName = "Sliwa";
     const string testPersonalID = "0000";
     Address *testaddress1;
     Address *testaddress2;
-
-    TestSuiteClientFixture() {
+    TestSuiteClientFixture()
+    {
         testaddress1 = new Address("Londyn", "Warecka", "13");
         testaddress2 = new Address("Warszawa", "Warszawska", "23");
     }
-
-    ~TestSuiteClientFixture() {
+    ~TestSuiteClientFixture()
+    {
         delete testaddress1;
         delete testaddress2;
     }
