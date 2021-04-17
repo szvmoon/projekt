@@ -16,15 +16,15 @@ Rent::Rent(int &id, Client *client, Vehicle *vehicle, pt::ptime beginTime): id(i
     vehicle->setrented(true);
     if (beginTime == pt::not_a_date_time)
     {
-        beginTime = pt::second_clock::local_time();
+        this->beginTime = pt::second_clock::local_time();
     }
 }
 Rent::~Rent() {}
-const string Rent::getRentInfo() const
+string Rent::getRentInfo() const
 {
     return ("Wypozyczenie: "+to_string(id)+", "+client->getClientInfo()+", "+vehicle->getVehicleInfo()+to_simple_string(beginTime)+to_simple_string(endTime)+"\n");
 }
-const int Rent::getid() const
+int Rent::getid() const
 {
     return (id);
 }
@@ -37,33 +37,45 @@ const Vehicle* Rent::getvehicle() const
     return vehicle;
 }
 
-const pt::ptime Rent::getbeginTime() const
+pt::ptime Rent::getbeginTime() const
 {
     return beginTime;
 }
-const pt::ptime Rent::getendTime() const
+pt::ptime Rent::getendTime() const
 {
     return endTime;
 }
 
-const pt::ptime Rent::endRent() const
+void Rent::endRent(const pt::ptime &now)
 {
-    pt::ptime endTime;
     if (endTime == pt::not_a_date_time)
     {
-        endTime = pt::second_clock::local_time();
+        endTime=now;
         if (endTime < beginTime)
         {
-            endTime=beginTime;
+            endTime = beginTime;
         }
     }
-    return endTime;
+    vehicle->setrented(false);
+    //this->client->currentRents.erase(remove(this->client->currentRents.begin, ));
+    //return endTime;
+    this->rentCost = (getRentDays() * this->vehicle->getbasePrice());
 }
-const string getRentDays() const
+int Rent::getRentDays() const
 {
-   string rentdays;
-   if (endTime == pt::not_a_date_time)
-   {
-       rentdays="0";
-   }
+    pt::time_period rentdays(beginTime, endTime);
+    if (this->vehicle->getrented())
+    {
+        return 0;
+    } else if (beginTime == endTime)
+    {
+        return 0;
+    } else
+    {
+        return (rentdays.length().hours() / 24);
+    }
+}
+int Rent::getRentCost() const
+{
+    return rentCost;
 }

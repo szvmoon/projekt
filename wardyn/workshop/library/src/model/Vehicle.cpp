@@ -23,13 +23,9 @@ const int Vehicle::getbasePrice() const
 {
     return (basePrice);
 }
-const string Vehicle::getrented() const {
-    if (rented == false)
-    {
-        return "No";
-    }
-    else
-        return "Yes";
+const bool Vehicle::getrented() const
+{
+    return rented;
 }
 void Vehicle::setplateNumber(const string &plate)
 {
@@ -42,7 +38,6 @@ void Vehicle::setbasePrice(const int &price)
 {
     basePrice = price;
 }
-void Vehicle::setrented(bool is_rented)
-{
+void Vehicle::setrented(bool is_rented)  {
     rented=is_rented;
 }

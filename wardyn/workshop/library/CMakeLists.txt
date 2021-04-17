@@ -18,7 +18,7 @@ include_directories(
 
 set(SOURCE_TEST_FILES) # tu w przyszłości będą dodawane pliki źródłowe testów
 
-add_executable (LibraryTest ${SOURCE_TEST_FILES}test/master.cpp test/ClientTest.cpp test/AddressTest.cpp test/VehicleTest.cpp)
+add_executable (LibraryTest ${SOURCE_TEST_FILES}test/master.cpp test/ClientTest.cpp test/AddressTest.cpp test/VehicleTest.cpp test/RentTest.cpp)
 
 #dołącz bibliotekę z testowanymi klasami oraz bibliotekę boost.test do programu testów
 target_link_libraries (LibraryTest

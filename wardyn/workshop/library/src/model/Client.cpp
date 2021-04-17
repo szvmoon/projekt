@@ -8,24 +8,18 @@
 
 using namespace std;
 
-Client::Client(const string &firstName,const string &lastName,const string &personalID, Address *address) :firstName(firstName), lastName(lastName), personalID(personalID), address(address)
-{
-
-}
+Client::Client(const string &firstName,const string &lastName,const string &personalID, Address *address) :firstName(firstName), lastName(lastName), personalID(personalID), address(address){}
 Client::~Client() {}
-const string Client::getClientInfo () const
+string Client::getClientInfo () const
 {
     return ("Client, "+firstName+", "+lastName+", "+personalID+", "+address->getAddressInfo());
 }
-const string Client::getFullClientInfo () const
-{
-    return (this->getClientInfo()+to_string(currentRents.size()));
-}
-const string Client::getfirstName() const
+
+string Client::getfirstName() const
 {
     return (firstName);
 }
-const string Client::getlastName() const
+string Client::getlastName() const
 {
     return (lastName);
 }
@@ -33,10 +27,7 @@ const Address* Client::getaddresspointer() const
 {
     return address;
 }
-/*const Rent* Client::getRent() const
-{
-    return currentRents.begin();
-}*/
+
 void Client::setfirstName (const string &name)
 {
     if (name != "")
@@ -65,8 +56,19 @@ void Client::setRent(Rent* pointer)
         currentRents.push_back(pointer);
     }
 }
-
-
+void Client::getRent() const
+{
+    cout << "Current Rents:" << endl;
+    for (int i=0; i<=currentRents.size(); i++)
+    {
+        cout << currentRents[i]->getRentInfo();
+    }
+}
+void Client::getFullClientInfo () const
+{
+    cout << getClientInfo();
+    getRent();
+}
 
 
 

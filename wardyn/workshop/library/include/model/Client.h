@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "Address.h"
+#include "Rent.h"
 #include <vector>
 
 using namespace std;
@@ -18,22 +19,23 @@ private:
     string lastName;
     const string personalID;
     Address *address;
-    vector<Rent*> currentRents;
+
 public:
     Client(const string&,const string&,const string&, Address*);
     ~Client();
-    const string getClientInfo () const;
-    const string getFullClientInfo () const;
-    const string getfirstName () const;
-    const string getlastName () const;
+    string getClientInfo () const;
+    void getFullClientInfo () const;
+    string getfirstName () const;
+    string getlastName () const;
     const Address* getaddresspointer () const;
-  //  const void getRent() const;
+    void getRent() const;
     void setfirstName (const string&);
     void setlastName (const string&);
     void setaddresspointer (Address*);
     void setRent(Rent*);
 
 
+    vector<Rent*> currentRents;
 };
 
 #endif //CARRENTALPROJECT_CLIENT_H

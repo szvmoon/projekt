@@ -19,7 +19,7 @@ public:
     ~Vehicle();
     const string getVehicleInfo () const;
     const string getplateNumber () const;
-    const string getrented () const;
+    const bool getrented () const;
     const int getbasePrice () const;
     void setplateNumber (const string&);
     void setbasePrice (const int&);

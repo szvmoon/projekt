@@ -9,26 +9,29 @@
 #include <iostream>
 #include <boost/date_time.hpp>
 namespace pt = boost::posix_time;
+namespace gr = boost::gregorian;
 using namespace std;
-
+class Client;
 class Rent {
 private:
     const int id;
     const Client *client;
-    const Vehicle *vehicle;
+    Vehicle *vehicle;
     pt::ptime beginTime;
     pt::ptime endTime;
+    int rentCost=0;
 public:
     Rent(int &, Client *, Vehicle *, pt::ptime);
     ~Rent();
-    const string getRentInfo() const;
-    const int getid() const;
+    string getRentInfo() const;
+    int getid() const;
     const Client *getclient() const;
-    const string getRentDays () const;
+    int getRentDays () const;
     const Vehicle *getvehicle() const;
-    const pt::ptime getbeginTime () const;
-    const pt::ptime getendTime () const;
-    const pt::ptime endRent () const;
+    pt::ptime getbeginTime () const;
+    pt::ptime getendTime () const;
+    void endRent (const pt::ptime&);
+    int getRentCost () const;
 };
 
 
