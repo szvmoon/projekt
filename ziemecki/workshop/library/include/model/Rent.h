@@ -22,7 +22,7 @@ private:
     Client *client;
     Vehicle *vehicle;
     pt::ptime beginTime = pt::not_a_date_time;
-    pt::ptime endTime;
+    pt::ptime endTime= pt::not_a_date_time;
 
 public:
     //Konstruktor desturktor
@@ -36,7 +36,7 @@ public:
 
     const Client *get_client() const;
 
-    const Vehicle *get_vehicle() const;
+    Vehicle *const get_vehicle() const;
 
     const pt::ptime& get_beginDate() const;
 
@@ -44,11 +44,11 @@ public:
 
 
     //Metody
-    const std::string& getRentInfo() const;
+    std::string getRentInfo() const;
 
-    int getRentDays();
+    const int getRentDays() const;
 
-    int getRentCost();
+    const int getRentCost() const;
 
     void endRent(const pt::ptime&);
 

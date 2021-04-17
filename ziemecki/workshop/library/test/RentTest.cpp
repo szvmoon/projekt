@@ -7,7 +7,7 @@
 
 struct TestSuiteRentFixture {
     const int testID= 12;
-    pt::ptime testbeginTime=pt::second_clock::local_time();
+    pt::ptime testbeginTime=pt::ptime(gr::date(2021,5,16));
     Client *testclient1;
     Address *testaddress1;
     Vehicle *testvehicle1;
@@ -39,6 +39,16 @@ BOOST_AUTO_TEST_CASE(RentConstructorTest) {
         delete R1;
 
 }
+
+    BOOST_AUTO_TEST_CASE(RentMethodsTest) {
+        Rent *R1 = new Rent(testID, testclient1, testvehicle1,testbeginTime);
+        R1->endRent(pt::ptime(gr::date(2021,5,17)));
+        BOOST_TEST(R1->getRentInfo() == std::to_string(testID) + " " + R1->get_client()->get_firstName() + " " + R1->get_client()->get_lastName() + " " + R1->get_vehicle()->getVehicleInfo());
+        BOOST_TEST(R1->getRentDays() == 1);
+        BOOST_TEST(R1->getRentCost() == 1 * R1->get_vehicle()->get_basePrice());
+        delete R1;
+
+    }
 
 
 BOOST_AUTO_TEST_SUITE_END()
