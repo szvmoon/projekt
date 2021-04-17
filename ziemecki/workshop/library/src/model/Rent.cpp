@@ -26,7 +26,7 @@ const Client *Rent::get_client() const { return client; }
 
 Vehicle *const Rent::get_vehicle() const { return vehicle; }
 
-string Rent::getRentInfo() const {
+string Rent::getRentInfo() const  {
     return (to_string(ID) + " " + client->get_firstName() + " " + client->get_lastName() + " " +
             vehicle->getVehicleInfo());
 }
