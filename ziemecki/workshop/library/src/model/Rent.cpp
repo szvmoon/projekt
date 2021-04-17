@@ -24,14 +24,14 @@ const int& Rent::get_ID() const { return ID; }
 
 const Client *Rent::get_client() const { return client; }
 
-const Vehicle *Rent::get_vehicle() const { return vehicle; }
+Vehicle *const Rent::get_vehicle() const { return vehicle; }
 
-const string& Rent::getRentInfo() const {
+string Rent::getRentInfo() const {
     return (to_string(ID) + " " + client->get_firstName() + " " + client->get_lastName() + " " +
             vehicle->getVehicleInfo());
 }
 
-int Rent::getRentDays() {
+const int Rent::getRentDays() const{
     pt::time_period period(beginTime, endTime);
     if (this->vehicle->isRented())
         return 0;
@@ -44,7 +44,7 @@ int Rent::getRentDays() {
 
 }
 
-int Rent::getRentCost() {
+const int Rent::getRentCost() const{
     return (getRentDays() * this->vehicle->get_basePrice());
 }
 

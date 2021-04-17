@@ -27,7 +27,7 @@ public:
     void set_RentStatus(const bool&);
 
     //Metody
-    std::string getVehicleInfo();
+    std::string getVehicleInfo() const;
 };
 
 
