@@ -4,7 +4,6 @@
 
 #include "model/Vehicle.h"
 #include <string>
-#include <iostream>
 
 using namespace std;
 

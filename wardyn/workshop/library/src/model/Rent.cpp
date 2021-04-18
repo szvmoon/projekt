@@ -3,11 +3,8 @@
 //
 
 #include "model/Rent.h"
-#include <string>
 #include <iostream>
-#include <boost/date_time.hpp>
-namespace pt = boost::posix_time;
-namespace gr = boost::gregorian;
+
 using namespace std;
 
 Rent::Rent(int &id, Client *client, Vehicle *vehicle, pt::ptime beginTime): id(id) , client(client), vehicle(vehicle), beginTime(beginTime)
