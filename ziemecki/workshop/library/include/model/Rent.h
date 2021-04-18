@@ -9,6 +9,7 @@
 #include "model/Rent.h"
 #include "model/Vehicle.h"
 #include <boost/date_time.hpp>
+#include "typedefs.h"
 
 namespace pt = boost::posix_time;
 namespace gr = boost::gregorian;
@@ -19,14 +20,14 @@ class Vehicle;
 class Rent {
 private:
     int ID;
-    Client *client;
-    Vehicle *vehicle;
+    ClientPtr client;
+    VehiclePtr vehicle;
     pt::ptime beginTime = pt::not_a_date_time;
     pt::ptime endTime= pt::not_a_date_time;
 
 public:
     //Konstruktor desturktor
-    Rent(const int &, Client *, Vehicle *,const pt::ptime &);
+    Rent(const int &, ClientPtr, VehiclePtr,const pt::ptime &);
 
     ~Rent();
 
@@ -34,9 +35,9 @@ public:
 
     const int& get_ID() const;
 
-    const Client *get_client() const;
+    const ClientPtr get_client() const;
 
-    Vehicle *const get_vehicle() const;
+    VehiclePtr const get_vehicle() const;
 
     const pt::ptime& get_beginDate() const;
 

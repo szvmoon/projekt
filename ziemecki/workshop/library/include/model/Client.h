@@ -8,6 +8,7 @@
 #include <iostream>
 #include "model/Address.h"
 #include "model/Rent.h"
+#include "typedefs.h"
 #include <vector>
 
 
@@ -17,13 +18,13 @@ private:
     std::string firstName;
     std::string lastName;
     std::string personalID;
-    Address *address;
-    std::vector <Rent*> currentRents;
+    AddressPtr address;
+    std::vector <RentPtr> currentRents;
 
 public:
     //konstruktor
     //lista inicjalizacyjna konstruktora
-    Client(const std::string&, const std::string&, const std::string&, Address *);
+    Client(const std::string&, const std::string&, const std::string&, AddressPtr);
 
     //destruktor
     ~Client();
@@ -36,7 +37,7 @@ public:
 
     const std::string& get_personalID() const;
 
-    const Address *get_Address() const;
+    const AddressPtr get_Address() const;
 
     void get_Rents() const;
 
@@ -46,11 +47,11 @@ public:
 
     void set_lastName(const std::string&);
 
-    void set_Address(Address *);
+    void set_Address(AddressPtr);
 
     //metody/operacje klasy
 
-    void add_Rent(Rent *);
+    void add_Rent(RentPtr);
 
     void getFullClientInfo() ;
 

@@ -6,6 +6,10 @@ set(SOURCE_FILES
         src/model/Address.cpp
         src/model/Vehicle.cpp
         src/model/Rent.cpp
+        src/repositories/ClientRepository.cpp
+        src/repositories/RentRepository.cpp
+        src/repositories/VehicleRepository.cpp
+        src/repositories/StorageContainer.cpp
         )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(Library ${SOURCE_FILES})

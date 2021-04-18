@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Rent::Rent(const int &id, Client *c, Vehicle *v, const pt::ptime &beginTime) : ID(id), client(c), vehicle(v),
+Rent::Rent(const int &id, ClientPtr c, VehiclePtr v, const pt::ptime &beginTime) : ID(id), client(c), vehicle(v),
                                                                         beginTime(beginTime) {
     client->add_Rent(this);
     if (beginTime.is_not_a_date_time()) {
@@ -22,13 +22,13 @@ Rent::~Rent() {}
 
 const int& Rent::get_ID() const { return ID; }
 
-const Client *Rent::get_client() const { return client; }
+const ClientPtr Rent::get_client() const { return client; }
 
-Vehicle *const Rent::get_vehicle() const { return vehicle; }
+VehiclePtr const Rent::get_vehicle() const { return vehicle; }
 
 string Rent::getRentInfo() const  {
     return (to_string(ID) + " " + client->get_firstName() + " " + client->get_lastName() + " " +
-            vehicle->getVehicleInfo());
+            vehicle->getVehicleInfo()) + "\n";
 }
 
 const int Rent::getRentDays() const{
@@ -51,6 +51,7 @@ const int Rent::getRentCost() const{
 void Rent::endRent(const pt::ptime &now) {
     endTime=now;
     this->vehicle->set_RentStatus(false);
+
 }
 
 const pt::ptime& Rent::get_beginDate() const { return beginTime; }

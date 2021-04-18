@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Client::Client(const string &name, const string &surname, const string &pid, Address *address) : firstName(name),
+Client::Client(const string &name, const string &surname, const string &pid, AddressPtr address) : firstName(name),
                                                                                                  lastName(surname),
                                                                                                  personalID(pid),
                                                                                                  address(address) {}
@@ -25,7 +25,7 @@ const string& Client::get_lastName() const { return lastName; }
 
 const string& Client::get_personalID() const { return personalID; }
 
-const Address *Client::get_Address() const { return address; }
+const AddressPtr Client::get_Address() const { return address; }
 
 void Client::set_firstName(const string &name) {
     if (name != "")
@@ -37,12 +37,12 @@ void Client::set_lastName(const string &surname) {
         lastName = surname;
 }
 
-void Client::set_Address(Address *nAddress) {
+void Client::set_Address(AddressPtr nAddress) {
     if (nAddress != nullptr)
         address = nAddress;
 }
 
-void Client::add_Rent(Rent *ptr) {
+void Client::add_Rent(RentPtr ptr) {
     if (ptr != nullptr)
         currentRents.push_back(ptr);
 }
