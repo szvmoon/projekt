@@ -47,14 +47,22 @@ void Client::add_Rent(RentPtr ptr) {
         currentRents.push_back(ptr);
 }
 
-void Client::get_Rents() const {
-    cout<<"Acutal Rents:"<<endl;
+string Client::get_Rents(){
+    stringstream napis;
+    napis << "Actual Rents:\n";
     for(int i=0;i<currentRents.size();i++) {
-        cout<<currentRents[i]->getRentInfo();
+        napis << currentRents[i]->getRentInfo();
     }
+    return napis.str();
 }
 
-void Client::getFullClientInfo() {
-    cout<<getClientInfo();
-    get_Rents();
+string Client::getFullClientInfo() {
+    stringstream napis;
+    napis<<getClientInfo();
+    napis<<get_Rents();
+    return napis.str();
+}
+
+void Client::remove_Rent(RentPtr ptr) {
+    currentRents.erase(std::remove(currentRents.begin(), currentRents.end(), ptr), currentRents.end());
 }

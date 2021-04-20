@@ -51,7 +51,7 @@ const int Rent::getRentCost() const{
 void Rent::endRent(const pt::ptime &now) {
     endTime=now;
     this->vehicle->set_RentStatus(false);
-
+    client->remove_Rent(this);
 }
 
 const pt::ptime& Rent::get_beginDate() const { return beginTime; }

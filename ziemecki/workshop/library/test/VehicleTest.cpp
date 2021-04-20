@@ -4,6 +4,7 @@
 
 #include <boost/test/unit_test.hpp>
 #include <model/Vehicle.h>
+#include "typedefs.h"
 
 struct TestSuiteVehicleFixture {
     const std::string testplateNumber = "ELC 4823";
@@ -13,7 +14,7 @@ struct TestSuiteVehicleFixture {
 BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteVehicleFixture)
 
     BOOST_AUTO_TEST_CASE(VehicleConstructorTest) {
-        Vehicle *Car = new Vehicle(testplateNumber, testbasePrice);
+        VehiclePtr Car = new Vehicle(testplateNumber, testbasePrice);
         BOOST_TEST(Car->get_plateNumber() == testplateNumber);
         BOOST_TEST(Car->get_basePrice() == testbasePrice);
         BOOST_TEST(Car->isRented() == false);
@@ -21,7 +22,7 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteVehicleFixture)
     }
 
     BOOST_AUTO_TEST_CASE(VehicleSettersTest) {
-        Vehicle *Car = new Vehicle(testplateNumber, testbasePrice);
+        VehiclePtr Car = new Vehicle(testplateNumber, testbasePrice);
         Car->set_plateNumber("");
         BOOST_TEST(Car->get_plateNumber() == testplateNumber);
         Car->set_plateNumber("ESSUNIA");
@@ -34,7 +35,7 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteVehicleFixture)
     }
 
     BOOST_AUTO_TEST_CASE(VehicleMethodsTest) {
-        Vehicle *Car = new Vehicle(testplateNumber, testbasePrice);
+        VehiclePtr Car = new Vehicle(testplateNumber, testbasePrice);
         BOOST_TEST(Car->getVehicleInfo() == "Vehicle " + testplateNumber + " " + std::to_string(testbasePrice) + "\n");
         delete Car;
     }

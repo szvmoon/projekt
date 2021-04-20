@@ -9,6 +9,7 @@
 #include "model/Address.h"
 #include "model/Rent.h"
 #include "typedefs.h"
+#include <sstream>
 #include <vector>
 
 
@@ -39,7 +40,7 @@ public:
 
     const AddressPtr get_Address() const;
 
-    void get_Rents() const;
+    std::string get_Rents();
 
     //settery
 
@@ -53,7 +54,9 @@ public:
 
     void add_Rent(RentPtr);
 
-    void getFullClientInfo() ;
+    void remove_Rent(RentPtr);
+
+    std::string getFullClientInfo();
 
     std::string getClientInfo() ;
 
