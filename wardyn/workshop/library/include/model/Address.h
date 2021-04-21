@@ -18,10 +18,10 @@ private:
 public:
     Address(const string&,const string&,const string&);
     ~Address();
-    const string getAddressInfo () const;
-    const string getcity () const;
-    const string getstreet () const;
-    const string getnumber () const;
+    string getAddressInfo () const;
+    string getcity () const;
+    string getstreet () const;
+    string getnumber () const;
     void setcity (string);
     void setstreet (string);
     void setnumber (string);

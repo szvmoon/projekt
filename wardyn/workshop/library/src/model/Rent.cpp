@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Rent::Rent(int &id, Client *client, Vehicle *vehicle, pt::ptime beginTime): id(id) , client(client), vehicle(vehicle), beginTime(beginTime)
+Rent::Rent(const int &id, Client *client, Vehicle *vehicle, pt::ptime &beginTime): id(id) , client(client), vehicle(vehicle), beginTime(beginTime)
 {
     client->setRent(this);
     vehicle->setrented(true);

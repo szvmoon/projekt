@@ -14,14 +14,14 @@ using namespace std;
 class Client;
 class Rent {
 private:
-    const int id;
-    const Client *client;
+    int id;
+    Client *client;
     Vehicle *vehicle;
     pt::ptime beginTime;
     pt::ptime endTime;
     int rentCost=0;
 public:
-    Rent(int &, Client *, Vehicle *, pt::ptime);
+    Rent(const int &, Client *, Vehicle *, pt::ptime&);
     ~Rent();
     string getRentInfo() const;
     int getid() const;
