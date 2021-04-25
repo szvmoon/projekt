@@ -8,8 +8,7 @@ using namespace std;
 
 int main ()
 {
-/*
-   int id=1;
+/*   int id=1;
    string time = "2021-09-12 23:23:23.000";
     Address B ("Jakies", "Losowa", "3");
     Client A ("Przyklad", "testowy", "69", &B);
@@ -19,7 +18,6 @@ int main ()
     cout << R.getRentDays() << endl;
     cout << R.getRentCost() << endl;
     V.setbasePrice(20);
-    cout << R.getRentCost() << endl;
-*/
+    cout << R.getRentCost() << endl;*/
 
 }

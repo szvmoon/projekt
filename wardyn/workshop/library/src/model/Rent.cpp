@@ -4,10 +4,11 @@
 
 #include "model/Rent.h"
 #include <iostream>
+#include "typedefs.h"
 
 using namespace std;
 
-Rent::Rent(const int &id, Client *client, Vehicle *vehicle, pt::ptime &beginTime): id(id) , client(client), vehicle(vehicle), beginTime(beginTime)
+Rent::Rent(const int &id, ClientPtr client, VehiclePtr vehicle, pt::ptime beginTime): id(id) , client(client), vehicle(vehicle), beginTime(beginTime)
 {
     client->setRent(this);
     vehicle->setrented(true);
@@ -19,17 +20,22 @@ Rent::Rent(const int &id, Client *client, Vehicle *vehicle, pt::ptime &beginTime
 Rent::~Rent() {}
 string Rent::getRentInfo() const
 {
-    return ("Wypozyczenie: "+to_string(id)+", "+client->getClientInfo()+", "+vehicle->getVehicleInfo()+to_simple_string(beginTime)+to_simple_string(endTime)+"\n");
+    stringstream bT,eT ;
+    bT << beginTime;
+    eT << endTime;
+    string begin = bT.str();
+    string end = eT.str();
+    return ("Wypozyczenie: "+to_string(id)+", "+client->getClientInfo()+", "+vehicle->getVehicleInfo()+begin+end+"\n");
 }
 int Rent::getid() const
 {
     return (id);
 }
-const Client* Rent::getclient() const
+const ClientPtr Rent::getclient() const
 {
     return client;
 }
-const Vehicle* Rent::getvehicle() const
+const VehiclePtr Rent::getvehicle() const
 {
     return vehicle;
 }
