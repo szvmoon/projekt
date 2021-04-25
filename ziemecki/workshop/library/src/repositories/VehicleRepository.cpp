@@ -38,6 +38,21 @@ const std::string VehicleRepository::report() const {
     return napis.str();;
 }
 
-int VehicleRepository::size(std::vector<VehiclePtr> v) {
-    return v.size();
+int VehicleRepository::size() {
+    return vehicleRepository.size();
+}
+
+vector<VehiclePtr> VehicleRepository::findBy(VehiclePredicate predicate) {
+    vector<VehiclePtr> found;
+    for (unsigned int i = 0; i < vehicleRepository.size(); i++) {
+        VehiclePtr vehicle = get(i);
+        if (vehicle != nullptr && predicate(vehicle)) {
+            found.push_back(vehicle);
+        }
+    }
+    return found;
+}
+
+std::vector<VehiclePtr> VehicleRepository::findAll()  {
+    return findBy([](VehiclePtr ptr){return ptr != nullptr;});
 }

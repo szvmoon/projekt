@@ -8,7 +8,6 @@
 #include "repositories/ClientRepository.h"
 #include "repositories/RentRepository.h"
 #include "repositories/VehicleRepository.h"
-#include "typedefs.h"
 
 class StorageContainer {
 private:
@@ -18,9 +17,9 @@ private:
 public:
     StorageContainer();
     ~StorageContainer();
-    ClientRepository getClientRepository() ;
-    VehicleRepository getVehicleRepository();
-    RentRepository getRentRepository();
+    ClientRepositoryPtr getClientRepository() ;
+    VehicleRepositoryPtr getVehicleRepository();
+    RentRepositoryPtr getRentRepository();
 
 };
 

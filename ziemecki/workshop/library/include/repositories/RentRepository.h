@@ -22,7 +22,9 @@ public:
     void add(RentPtr);
     void remove(RentPtr);
     const std::string report() const;
-    int size(std::vector <RentPtr>);
+    int size();
+    std::vector<RentPtr> findBy(RentPredicate) ;
+    std::vector<RentPtr> findAll();
 };
 
 

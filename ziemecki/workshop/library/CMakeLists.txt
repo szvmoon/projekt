@@ -6,6 +6,10 @@ set(SOURCE_FILES
         src/model/Address.cpp
         src/model/Vehicle.cpp
         src/model/Rent.cpp
+        src/model/Car.cpp
+        src/model/MotorVehicle.cpp
+        src/model/Bicycle.cpp
+        src/model/Moped.cpp
         src/repositories/ClientRepository.cpp
         src/repositories/RentRepository.cpp
         src/repositories/VehicleRepository.cpp
@@ -28,7 +32,8 @@ set(SOURCE_TEST_FILES
         test/ClientTest.cpp
         test/AddressTest.cpp
         test/VehicleTest.cpp
-        test/RentTest.cpp) # tu w przyszłości będą dodawane pliki źródłowe testów
+        test/RentTest.cpp
+        test/StorageContainerTest.cpp) # tu w przyszłości będą dodawane pliki źródłowe testów
 
 add_executable(LibraryTest ${SOURCE_TEST_FILES})
 

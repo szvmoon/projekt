@@ -6,15 +6,15 @@
 
 using namespace std;
 
-Rent::Rent(const int &id, ClientPtr c, VehiclePtr v, const pt::ptime &beginTime) : ID(id), client(c), vehicle(v),
-                                                                        beginTime(beginTime) {
+Rent::Rent(const int &id, ClientPtr c, VehiclePtr v, const pt::ptime &beginT) : ID(id), client(c), vehicle(v),
+                                                                        beginTime(beginT) {
     client->add_Rent(this);
-    if (beginTime.is_not_a_date_time()) {
-        this->beginTime = pt::second_clock::local_time();
+    if (beginT == pt::not_a_date_time) {
+        beginTime = pt::second_clock::local_time();
     } else {
-        this->beginTime = beginTime;
+        beginTime = beginTime;
     }
-    this->endTime = pt::not_a_date_time;
+    endTime = pt::not_a_date_time;
     vehicle->set_RentStatus(true);
 }
 
@@ -27,8 +27,12 @@ const ClientPtr Rent::get_client() const { return client; }
 VehiclePtr const Rent::get_vehicle() const { return vehicle; }
 
 string Rent::getRentInfo() const  {
+    stringstream beginT;
+    stringstream endT;
+    beginT << beginTime;
+    endT << endTime;
     return (to_string(ID) + " " + client->get_firstName() + " " + client->get_lastName() + " " +
-            vehicle->getVehicleInfo()) + "\n";
+            vehicle->getVehicleInfo() + " " + beginT.str() + " " +  endT.str() +  "\n") ;
 }
 
 const int Rent::getRentDays() const{
@@ -40,7 +44,7 @@ const int Rent::getRentDays() const{
         return 0;
 
     else
-        return (period.length().hours() / 24);
+        return 1+ (period.length().hours() / 24);
 
 }
 

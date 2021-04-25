@@ -22,7 +22,9 @@ public:
     void add(VehiclePtr) ;
     void remove(VehiclePtr);
     const std::string report() const;
-    int size(std::vector <VehiclePtr>);
+    int size();
+    std::vector<VehiclePtr> findBy(VehiclePredicate) ;
+    std::vector<VehiclePtr> findAll() ;
 
 };
 

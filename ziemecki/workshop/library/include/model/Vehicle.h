@@ -10,8 +10,9 @@
 class Vehicle {
 private:
     std::string plateNumber;
-    int basePrice;
     bool rented=false;
+protected:
+    int basePrice;
 public:
     //Konstruktor destruktor
     Vehicle(const std::string &, const int &);
@@ -27,7 +28,7 @@ public:
     void set_RentStatus(const bool&);
 
     //Metody
-    std::string getVehicleInfo() const;
+    virtual std::string getVehicleInfo();
 };
 
 

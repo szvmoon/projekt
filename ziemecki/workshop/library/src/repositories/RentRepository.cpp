@@ -6,6 +6,7 @@
 
 using namespace std;
 
+
 RentRepository::RentRepository() {}
 
 RentRepository::~RentRepository() {}
@@ -38,4 +39,20 @@ const std::string RentRepository::report() const {
     return napis.str();
 }
 
-int RentRepository::size(std::vector<RentPtr> v) {return v.size();}
+int RentRepository::size() {return rentRepository.size();}
+
+vector<RentPtr> RentRepository::findBy(RentPredicate predicate) {
+    vector<RentPtr> found;
+    for (unsigned int i = 0; i < rentRepository.size(); i++) {
+        RentPtr rent = get(i);
+        if (rent != nullptr && predicate(rent)) {
+            found.push_back(rent);
+        }
+    }
+    return found;
+}
+
+std::vector<RentPtr> RentRepository::findAll() {
+    findBy([](RentPtr ptr){return ptr != nullptr;});
+}
+

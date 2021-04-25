@@ -39,4 +39,20 @@ const std::string ClientRepository::report() const {
     return napis.str();
 }
 
-int ClientRepository::size(std::vector<ClientPtr> v) {return v.size();}
+int ClientRepository::size() {return clientRepository.size();}
+
+vector<ClientPtr> ClientRepository::findBy(ClientPredicate predicate) {
+    vector<ClientPtr> found;
+    for (unsigned int i = 0; i < clientRepository.size(); i++) {
+        ClientPtr client = get(i);
+        if (client != nullptr && predicate(client)) {
+            found.push_back(client);
+        }
+    }
+    return found;
+}
+
+std::vector<ClientPtr> ClientRepository::findAll() {
+    return findBy([](ClientPtr ptr){return ptr != nullptr;});
+}
+

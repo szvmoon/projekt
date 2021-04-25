@@ -21,8 +21,8 @@ void Vehicle::set_plateNumber(const string &pNumber) {
 
 void Vehicle::set_basePrice(const int &bPrice) { basePrice = bPrice; }
 
-string Vehicle::getVehicleInfo() const {
-    return ("Vehicle " + plateNumber + " " + to_string(basePrice) + "\n");
+string Vehicle::getVehicleInfo()  {
+    return ("Vehicle " + plateNumber + " " + to_string(basePrice));
 }
 
 const bool& Vehicle::isRented() const { return rented; }

@@ -3,26 +3,33 @@
 #include "model/Address.h"
 #include "model/Vehicle.h"
 #include "model/Rent.h"
+#include "repositories/StorageContainer.h"
 
 
 using namespace std;
 
 int main() {
-    Vehicle *C1 = new Vehicle("ELC12312", 20);
-    Address *A1 = new Address("Wwa","Jasna","12");
-    Client  *K1= new Client("Szsymon", "Ziemecki","123123",A1);
-    Rent *R1 = new Rent(1,K1,C1,pt::ptime(gr::date(2021,5,16)));;
-    R1->endRent(pt::ptime(gr::date(2021,5,17)));
-    cout<<R1->getRentCost()<<endl;
-    C1->set_basePrice(30);
-    cout<<R1->getRentCost()<<endl;
+    StorageContainerPtr S2 = new StorageContainer();
+    cout<<S2->getRentRepository()->report();
+    cout<<S2->getClientRepository()->report();
+    cout<<S2->getVehicleRepository()->report();
+
+    ClientPtr K1 = new Client("Szymon", "Ziemecki","123",nullptr);
+    VehiclePtr V1 = new Vehicle("ELC",20);
+    RentPtr R1 = new Rent(2, K1, V1, pt::second_clock::local_time());
+
+    S2->getRentRepository()->add(R1);
+
+    cout<<S2->getRentRepository()->report();
+    cout<<S2->getClientRepository()->report();
+    cout<<S2->getVehicleRepository()->report();
 
 
 
 
-    delete C1;
-    delete A1;
+    delete S2;
     delete K1;
+    delete V1;
     delete R1;
 
     return 0;

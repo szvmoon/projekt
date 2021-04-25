@@ -44,9 +44,9 @@ BOOST_AUTO_TEST_CASE(RentConstructorTest) {
     BOOST_AUTO_TEST_CASE(RentMethodsTest) {
         RentPtr R1 = new Rent(testID, testclient1, testvehicle1,testbeginTime);
         R1->endRent(pt::ptime(gr::date(2021,5,17)));
-        BOOST_TEST(R1->getRentInfo() == std::to_string(testID) + " " + R1->get_client()->get_firstName() + " " + R1->get_client()->get_lastName() + " " + R1->get_vehicle()->getVehicleInfo() + "\n");
-        BOOST_TEST(R1->getRentDays() == 1);
-        BOOST_TEST(R1->getRentCost() == 1 * R1->get_vehicle()->get_basePrice());
+        BOOST_TEST(R1->getRentInfo() == std::to_string(testID) + " " + R1->get_client()->get_firstName() + " " + R1->get_client()->get_lastName() + " " + R1->get_vehicle()->getVehicleInfo() + " 2021-May-16 00:00:00 2021-May-17 00:00:00" + "\n");
+        BOOST_TEST(R1->getRentDays() == 2);
+        BOOST_TEST(R1->getRentCost() == 2 * R1->get_vehicle()->get_basePrice());
         BOOST_TEST(R1->get_endDate() == pt::ptime(gr::date(2021,5,17)));
         delete R1;
 

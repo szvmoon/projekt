@@ -22,7 +22,10 @@ public:
     void add(ClientPtr);
     void remove(ClientPtr);
     const std::string report() const;
-    int size(std::vector <ClientPtr>);
+    int size();
+    std::vector<ClientPtr> findBy(ClientPredicate);
+    std::vector<ClientPtr> findAll();
+
 };
 
 
