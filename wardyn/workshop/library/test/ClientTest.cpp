@@ -36,7 +36,7 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteClientFixture)
     BOOST_AUTO_TEST_CASE(ClientConstructorTest)
     {
         Client t (testFirstName, testLastName, testPersonalID, testaddress1);
-        BOOST_TEST_CHECK(t.getClientInfo()=="Client, Bartek, Sliwa, 0000, Adres: Londyn, Warecka, 13\n");
+        BOOST_TEST_CHECK(t.getClientInfo()=="Client, Bartek, Sliwa, 0000, Adres: Londyn, Warecka, 13");
     }
     BOOST_AUTO_TEST_CASE(ClientSettersTest)
     {

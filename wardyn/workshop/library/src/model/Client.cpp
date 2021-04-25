@@ -3,9 +3,11 @@
 //
 
 #include "model/Client.h"
+#include "typedefs.h"
+
 using namespace std;
 
-Client::Client(const string &firstName,const string &lastName,const string &personalID, Address *address) :firstName(firstName), lastName(lastName), personalID(personalID), address(address){}
+Client::Client(const string &firstName,const string &lastName,const string &personalID, AddressPtr address) :firstName(firstName), lastName(lastName), personalID(personalID), address(address){}
 Client::~Client() {}
 string Client::getClientInfo () const
 {
@@ -20,7 +22,7 @@ string Client::getlastName() const
 {
     return (lastName);
 }
-const Address* Client::getaddresspointer() const
+AddressPtr Client::getaddresspointer() const
 {
     return address;
 }
@@ -46,7 +48,7 @@ void Client::setaddresspointer( Address* pointer)
         address = pointer;
     }
 }
-void Client::setRent(Rent* pointer)
+void Client::setRent(RentPtr pointer)
 {
     if (pointer != nullptr)
     {

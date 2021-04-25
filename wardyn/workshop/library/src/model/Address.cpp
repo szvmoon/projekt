@@ -11,19 +11,19 @@ Address::Address(const string &city,const string &street,const string &number) :
 
 Address::~Address() {}
 
-const string Address::getAddressInfo () const
+string Address::getAddressInfo () const
 {
     return ("Adres: "+city+", "+street+", "+number);
 }
-const string Address::getcity() const
+string Address::getcity() const
 {
     return (city);
 }
-const string Address::getstreet() const
+string Address::getstreet() const
 {
     return (street);
 }
-const string Address::getnumber() const
+string Address::getnumber() const
 {
     return (number);
 }

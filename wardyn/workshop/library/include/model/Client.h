@@ -9,6 +9,7 @@
 #include "Address.h"
 #include "Rent.h"
 #include <vector>
+#include "typedefs.h"
 
 using namespace std;
 class Rent;
@@ -18,7 +19,7 @@ private:
     string firstName;
     string lastName;
     const string personalID;
-    Address *address;
+    AddressPtr address;
 
 public:
     Client(const string&,const string&,const string&, Address*);
@@ -27,15 +28,15 @@ public:
     void getFullClientInfo () const;
     string getfirstName () const;
     string getlastName () const;
-    const Address* getaddresspointer () const;
+    AddressPtr getaddresspointer () const;
     void getRent() const;
     void setfirstName (const string&);
     void setlastName (const string&);
     void setaddresspointer (Address*);
-    void setRent(Rent*);
+    void setRent(RentPtr);
 
 
-    vector<Rent*> currentRents;
+    vector<RentPtr> currentRents;
 };
 
 #endif //CARRENTALPROJECT_CLIENT_H
