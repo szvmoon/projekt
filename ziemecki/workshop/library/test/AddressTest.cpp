@@ -23,7 +23,7 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteAddress, TestSuiteAddressFixture)
         delete Adres;
     }
 
-    BOOST_AUTO_TEST_CASE(AddressMethodsTest) {
+    BOOST_AUTO_TEST_CASE(AddressGetAddressInfoTest) {
         AddressPtr Adres = new Address(testCity, testStreet, testNumber);
         BOOST_TEST(Adres->getAddressInfo() == "Address " + testCity + " " + testStreet + " " + testNumber);
         delete Adres;

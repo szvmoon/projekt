@@ -14,10 +14,14 @@ Car::~Car() {
 }
 
 double Car::getActualRentalPrice() {
-    return (MotorVehicle::getActualRentalPrice()*segment/10);
+    return ((MotorVehicle::getActualRentalPrice()*segment)/10);
 }
 
 std::string Car::getVehicleInfo() {
-    return (MotorVehicle::getVehicleInfo() + to_string(segment));
+    return ("Car " + MotorVehicle::getVehicleInfo() + " " + to_string(segment) + "\n");
+}
+
+const SegmentType& Car::get_segment() const {
+    return segment;
 }
 

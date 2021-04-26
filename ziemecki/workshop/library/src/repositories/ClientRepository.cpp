@@ -29,14 +29,14 @@ void ClientRepository::remove(ClientPtr ptr){
 }
 
 const std::string ClientRepository::report() const {
-    stringstream napis;
+    stringstream stream;
 
     for(int i=0; i<clientRepository.size();i++)
     {
-        napis << clientRepository[i]->getClientInfo();
+        stream << clientRepository[i]->getClientInfo();
     }
 
-    return napis.str();
+    return stream.str();
 }
 
 int ClientRepository::size() {return clientRepository.size();}

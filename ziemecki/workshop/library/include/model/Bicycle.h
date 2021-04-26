@@ -5,7 +5,7 @@
 #ifndef CARRENTAL_BICYCLE_H
 #define CARRENTAL_BICYCLE_H
 
-#include "Vehicle.h"
+#include "model/Vehicle.h"
 
 class Bicycle : public Vehicle {
 public:

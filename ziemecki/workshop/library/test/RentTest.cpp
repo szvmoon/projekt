@@ -4,6 +4,7 @@
 
 #include <boost/test/unit_test.hpp>
 #include <model/Rent.h>
+#include <model/Bicycle.h>
 #include "typedefs.h"
 
 struct TestSuiteRentFixture {
@@ -11,11 +12,11 @@ struct TestSuiteRentFixture {
     pt::ptime testbeginTime=pt::ptime(gr::date(2021,5,16));
     ClientPtr testclient1;
     AddressPtr testaddress1;
-    VehiclePtr testvehicle1;
+    BicyclePtr testvehicle1;
 
     TestSuiteRentFixture() {
         testaddress1 = new Address("London", "Accacia Avenue", "22");
-        testvehicle1 = new Vehicle("ECL123", 12);
+        testvehicle1 = new Bicycle("ECL123", 12);
         testclient1 = new Client("Szymon", "Ziemecki", "123", testaddress1);
     }
 

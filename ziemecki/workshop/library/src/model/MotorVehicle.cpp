@@ -29,5 +29,11 @@ double MotorVehicle::getActualRentalPrice() {
 }
 
 std::string MotorVehicle::getVehicleInfo() {
-    return (Vehicle::getVehicleInfo() +  to_string(engineDisplacement) + "\n");
+    return (Vehicle::getVehicleInfo() + " " + to_string(engineDisplacement));
+}
+
+const int MotorVehicle::get_engineDisplacement() const {return engineDisplacement;}
+
+const void MotorVehicle::set_engineDisplacement(const int& displacement) {
+    engineDisplacement=displacement;
 }

@@ -16,6 +16,7 @@ private:
 public:
     Car(const std::string&,const int&, const int &, const SegmentType&);
     ~Car();
+    const SegmentType& get_segment() const;
     virtual double getActualRentalPrice() override;
     virtual std::string getVehicleInfo() override;
 

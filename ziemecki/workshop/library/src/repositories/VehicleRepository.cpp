@@ -28,14 +28,14 @@ void VehicleRepository::remove(VehiclePtr ptr) {
 }
 
 const std::string VehicleRepository::report() const {
-    stringstream napis;
+    stringstream stream;
 
     for(int i=0; i<vehicleRepository.size();i++)
     {
-        napis << vehicleRepository[i]->getVehicleInfo();
+        stream << vehicleRepository[i]->getVehicleInfo();
     }
 
-    return napis.str();;
+    return stream.str();;
 }
 
 int VehicleRepository::size() {

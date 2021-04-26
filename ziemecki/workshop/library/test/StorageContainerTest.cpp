@@ -33,30 +33,36 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteStorgaeContainer, TestSuiteStorageContainerFix
 
     bool testId1(RentPtr ptr)
     {
-        return ptr->get_ID()==1;
+            return ptr->get_ID() == 1;
     }
 
 
     BOOST_AUTO_TEST_CASE(StorageContainerConstructorTest) {
         StorageContainerPtr S1 = new StorageContainer();
         BOOST_TEST(S1->getClientRepository()->get(0)->getClientInfo() == "Client Szymon Ziemecki 123 Address wwa jasna 1\n");
-        BOOST_TEST(S1->getRentRepository()->get(0)->getRentInfo() == "1 Szymon Ziemecki Vehicle ELC 20 2021-May-16 00:00:00 not-a-date-time\n");
-        BOOST_TEST(S1->getVehicleRepository()->get(0)->getVehicleInfo() == "Vehicle ELC 20");
+        BOOST_TEST(S1->getRentRepository()->get(0)->getRentInfo() == "1 Szymon Ziemecki Bicycle ELC 20\n 2021-May-16 00:00:00 not-a-date-time\n");
+        BOOST_TEST(S1->getVehicleRepository()->get(0)->getVehicleInfo() == "Bicycle ELC 20\n");
         delete S1;
     }
 
     BOOST_AUTO_TEST_CASE(ClientRepositoryMethodsTest) {
         StorageContainerPtr S2 = new StorageContainer();
         ClientPtr K1 = new Client(testFirstName, testLastName, testPersonalID, testaddress1);
+
+        // add test
         S2->getClientRepository()->add(nullptr);
         BOOST_TEST(S2->getClientRepository()->size() == 1);
         S2->getClientRepository()->add(K1);
         BOOST_TEST(S2->getClientRepository()->get(1) == K1);
         BOOST_TEST(S2->getClientRepository()->size() == 2);
+
+        //remove test
         S2->getClientRepository()->remove(nullptr);
         BOOST_TEST(S2->getClientRepository()->size() == 2);
         S2->getClientRepository()->remove(K1);
         BOOST_TEST(S2->getClientRepository()->size() == 1);
+
+        //report test
         BOOST_TEST(S2->getClientRepository()->report() == "Client Szymon Ziemecki 123 Address wwa jasna 1\n");
 
 
@@ -66,17 +72,23 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteStorgaeContainer, TestSuiteStorageContainerFix
 
     BOOST_AUTO_TEST_CASE(VehicleRepositoryMethodsTest) {
         StorageContainerPtr S2 = new StorageContainer();
-        VehiclePtr V1 = new Vehicle(testPlateNumber, testbasePrice);
+        BicyclePtr V1 = new Bicycle(testPlateNumber, testbasePrice);
+
+        // add test
         S2->getVehicleRepository()->add(nullptr);
         BOOST_TEST(S2->getVehicleRepository()->size() == 1);
         S2->getVehicleRepository()->add(V1);
         BOOST_TEST(S2->getVehicleRepository()->get(1) == V1);
         BOOST_TEST(S2->getVehicleRepository()->size() == 2);
+
+        //remove test
         S2->getVehicleRepository()->remove(nullptr);
         BOOST_TEST(S2->getVehicleRepository()->size() == 2);
         S2->getVehicleRepository()->remove(V1);
         BOOST_TEST(S2->getVehicleRepository()->size() == 1);
-        BOOST_TEST(S2->getVehicleRepository()->report() == "Vehicle ELC 20");
+
+        //report test
+        BOOST_TEST(S2->getVehicleRepository()->report() == "Bicycle ELC 20\n");
         delete S2;
         delete V1;
     }
@@ -84,24 +96,32 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteStorgaeContainer, TestSuiteStorageContainerFix
     BOOST_AUTO_TEST_CASE(RentRepositoryMethodsTest) {
         StorageContainerPtr S2 = new StorageContainer();
         ClientPtr K1 = new Client(testFirstName, testLastName, testPersonalID, testaddress1);
-        VehiclePtr V1 = new Vehicle(testPlateNumber, testbasePrice);
+        BicyclePtr V1 = new Bicycle(testPlateNumber, testbasePrice);
         RentPtr R1 = new Rent(2, K1, V1, pt::not_a_date_time);
+
+        //add test
         S2->getRentRepository()->add(nullptr);
         BOOST_TEST(S2->getRentRepository()->size() == 1);
         S2->getRentRepository()->add(R1);
         BOOST_TEST(S2->getRentRepository()->get(1) == R1);
         BOOST_TEST(S2->getRentRepository()->size() == 2);
-        S2->getRentRepository()->remove(nullptr);
-        BOOST_TEST(S2->getRentRepository()->size() == 2);
 
+        // findBy test
         std::vector<RentPtr> test = S2->getRentRepository()->findBy(testId1);
         BOOST_TEST(test[0]->get_ID() == 1);
         BOOST_TEST(test.size() == 1);
 
+        //remove test
+        S2->getRentRepository()->remove(nullptr);
+        BOOST_TEST(S2->getRentRepository()->size() == 2);
 
         S2->getRentRepository()->remove(R1);
         BOOST_TEST(S2->getRentRepository()->size() == 1);
-        BOOST_TEST(S2->getRentRepository()->report() == "1 Szymon Ziemecki Vehicle ELC 20 2021-May-16 00:00:00 not-a-date-time\n");
+
+        //report test
+        BOOST_TEST(S2->getRentRepository()->report() == "1 Szymon Ziemecki Bicycle ELC 20\n 2021-May-16 00:00:00 not-a-date-time\n");
+
+
 
         delete S2;
         delete V1;

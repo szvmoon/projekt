@@ -14,6 +14,8 @@ private:
 public:
     MotorVehicle(const std::string&,const int&, const int &);
     virtual ~MotorVehicle()=0;
+    const int get_engineDisplacement() const;
+    const void set_engineDisplacement(const int&);
     virtual double getActualRentalPrice() ;
     virtual std::string getVehicleInfo() override;
 };

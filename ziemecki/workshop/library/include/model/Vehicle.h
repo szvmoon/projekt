@@ -6,6 +6,7 @@
 #define CARRENTAL_VEHICLE_H
 
 #include <string>
+#include "typedefs.h"
 
 class Vehicle {
 private:
@@ -16,7 +17,7 @@ protected:
 public:
     //Konstruktor destruktor
     Vehicle(const std::string &, const int &);
-    ~Vehicle();
+    virtual ~Vehicle()=0;
 
     //Gettery
     const std::string& get_plateNumber() const;

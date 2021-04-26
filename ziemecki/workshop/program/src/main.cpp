@@ -15,8 +15,9 @@ int main() {
     cout<<S2->getVehicleRepository()->report();
 
     ClientPtr K1 = new Client("Szymon", "Ziemecki","123",nullptr);
-    VehiclePtr V1 = new Vehicle("ELC",20);
+    BicyclePtr V1 = new Bicycle("ELC",20);
     RentPtr R1 = new Rent(2, K1, V1, pt::second_clock::local_time());
+    R1->endRent(pt::ptime(gr::date(2021,5,16)));
 
     S2->getRentRepository()->add(R1);
 

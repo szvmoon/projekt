@@ -15,5 +15,5 @@ double Bicycle::getActualRentalPrice() {
 }
 
 std::string Bicycle::getVehicleInfo() {
-    return Vehicle::getVehicleInfo() + "\n";
+    return "Bicycle " +Vehicle::getVehicleInfo() + "\n";
 }

@@ -11,6 +11,10 @@
 #include <algorithm>
 #include <sstream>
 #include "model/Vehicle.h"
+#include "model/Bicycle.h"
+#include "model/MotorVehicle.h"
+#include "model/Moped.h"
+#include "model/Car.h"
 
 class VehicleRepository {
 private:
@@ -24,7 +28,7 @@ public:
     const std::string report() const;
     int size();
     std::vector<VehiclePtr> findBy(VehiclePredicate) ;
-    std::vector<VehiclePtr> findAll() ;
+    std::vector<VehiclePtr> findAll();
 
 };
 
