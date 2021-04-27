@@ -6,7 +6,10 @@
 
 using namespace std;
 
-
+bool truePredicate(RentPtr ptr)
+{
+    return true;
+}
 
 RentRepository::RentRepository() {}
 
@@ -54,5 +57,6 @@ vector<RentPtr> RentRepository::findBy(RentPredicate predicate) {
 }
 
 std::vector<RentPtr> RentRepository::findAll() {
+    return findBy([](RentPtr ptr){return ptr != nullptr;});
 }
 
