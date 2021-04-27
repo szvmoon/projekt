@@ -6,9 +6,7 @@
 
 Moped::Moped(const std::string & plateNumber, const int &basePrice, const int &engineDisplacement) : MotorVehicle(plateNumber,basePrice,engineDisplacement){}
 
-Moped::~Moped() {
-
-}
+Moped::~Moped() {}
 
 double Moped::getActualRentalPrice() {
     return MotorVehicle::getActualRentalPrice();

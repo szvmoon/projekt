@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "model/Address.h"
+#include "model/ClientType.h"
 #include "model/Rent.h"
 #include "typedefs.h"
 #include <sstream>
@@ -20,7 +21,8 @@ private:
     std::string lastName;
     std::string personalID;
     AddressPtr address;
-    std::vector <RentPtr> currentRents;
+    ClientTypePtr clientType;
+    //std::vector <RentPtr> currentRents;
 
 public:
     //konstruktor
@@ -40,25 +42,32 @@ public:
 
     const AddressPtr get_Address() const;
 
-    std::string get_Rents();
+    // std::string get_Rents();
 
     //settery
 
-    void set_firstName(const std::string&);
+    const void set_firstName(const std::string&);
 
-    void set_lastName(const std::string&);
+    const void set_lastName(const std::string&);
 
-    void set_Address(AddressPtr);
+    const void set_Address(AddressPtr);
 
     //metody/operacje klasy
 
-    void add_Rent(RentPtr);
+   // void add_Rent(RentPtr);
 
-    void remove_Rent(RentPtr);
+  //  void remove_Rent(RentPtr);
 
-    std::string getFullClientInfo();
+   // std::string getFullClientInfo();
 
-    std::string getClientInfo() ;
+    const std::string getClientInfo() ;
+
+    void setClientType(ClientTypePtr);
+
+    int getMaxVehicles();
+
+    double applyDiscount();
+
 
 };
 

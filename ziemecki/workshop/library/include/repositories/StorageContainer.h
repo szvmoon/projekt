@@ -17,9 +17,9 @@ private:
 public:
     StorageContainer();
     ~StorageContainer();
-    ClientRepositoryPtr getClientRepository() ;
-    VehicleRepositoryPtr getVehicleRepository();
-    RentRepositoryPtr getRentRepository();
+    ClientRepository * getClientRepository() ;
+    VehicleRepository *getVehicleRepository();
+    RentRepository * getRentRepository();
 
 };
 

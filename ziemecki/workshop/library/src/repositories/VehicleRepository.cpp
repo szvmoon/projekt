@@ -42,7 +42,7 @@ int VehicleRepository::size() {
     return vehicleRepository.size();
 }
 
-vector<VehiclePtr> VehicleRepository::findBy(VehiclePredicate predicate) {
+vector<VehiclePtr> VehicleRepository::findBy(VehiclePredicate predicate) const{
     vector<VehiclePtr> found;
     for (unsigned int i = 0; i < vehicleRepository.size(); i++) {
         VehiclePtr vehicle = get(i);

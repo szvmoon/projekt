@@ -14,6 +14,13 @@ set(SOURCE_FILES
         src/repositories/RentRepository.cpp
         src/repositories/VehicleRepository.cpp
         src/repositories/StorageContainer.cpp
+        src/model/ClientType.cpp
+        src/model/Default.cpp
+        src/model/Bronze.cpp
+        src/model/Silver.cpp
+        src/model/Gold.cpp
+        src/model/Platinum.cpp
+        src/model/Diamond.cpp
         )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(Library ${SOURCE_FILES})

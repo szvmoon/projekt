@@ -8,14 +8,14 @@ using namespace std;
 
 Rent::Rent(const int &id, ClientPtr c, VehiclePtr v, const pt::ptime &beginT) : ID(id), client(c), vehicle(v),
                                                                         beginTime(beginT) {
-    client->add_Rent(this);
+    //client->add_Rent(this);
     if (beginT == pt::not_a_date_time) {
         beginTime = pt::second_clock::local_time();
     } else {
         beginTime = beginTime;
     }
     endTime = pt::not_a_date_time;
-    vehicle->set_RentStatus(true);
+    //vehicle->set_RentStatus(true);
 }
 
 Rent::~Rent() {}
@@ -37,10 +37,10 @@ string Rent::getRentInfo() const  {
 
 const int Rent::getRentDays() const{
     pt::time_period period(beginTime, endTime);
-    if (this->vehicle->isRented())
-        return 0;
+    //if (this->vehicle->isRented())
+    //    return 0;
 
-    else if (beginTime == endTime)
+    if (beginTime == endTime)
         return 0;
 
     else
@@ -54,8 +54,8 @@ const int Rent::getRentCost() const{
 
 void Rent::endRent(const pt::ptime &now) {
     endTime=now;
-    this->vehicle->set_RentStatus(false);
-    client->remove_Rent(this);
+    //this->vehicle->set_RentStatus(false);
+    //client->remove_Rent(this);
 }
 
 const pt::ptime& Rent::get_beginDate() const { return beginTime; }

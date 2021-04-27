@@ -9,6 +9,8 @@
 #include <boost/test/unit_test.hpp>
 #include <repositories/StorageContainer.h>
 
+using namespace std;
+
 struct TestSuiteStorageContainerFixture {
     const std::string testFirstName = "Jon";
     const std::string testLastName = "Arbuckle";
@@ -19,11 +21,10 @@ struct TestSuiteStorageContainerFixture {
 
 
     TestSuiteStorageContainerFixture() {
-        testaddress1 = new Address("London", "Accacia Avenue", "22");
+        testaddress1 = make_shared<Address>("London", "Accacia Avenue", "22");
     }
 
     ~TestSuiteStorageContainerFixture() {
-        delete testaddress1;
     }
 
 };
@@ -48,16 +49,15 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteStorgaeContainer, TestSuiteStorageContainerFix
 
 
     BOOST_AUTO_TEST_CASE(StorageContainerConstructorTest) {
-        StorageContainerPtr S1 = new StorageContainer();
+        StorageContainerPtr S1 = make_shared<StorageContainer>();
         BOOST_TEST(S1->getClientRepository()->get(0)->getClientInfo() == "Client Szymon Ziemecki 123 Address wwa jasna 1\n");
         BOOST_TEST(S1->getRentRepository()->get(0)->getRentInfo() == "1 Szymon Ziemecki Bicycle ELC 20\n 2021-May-16 00:00:00 not-a-date-time\n");
         BOOST_TEST(S1->getVehicleRepository()->get(0)->getVehicleInfo() == "Bicycle ELC 20\n");
-        delete S1;
     }
 
     BOOST_AUTO_TEST_CASE(ClientRepositoryMethodsTest) {
-        StorageContainerPtr S2 = new StorageContainer();
-        ClientPtr K1 = new Client(testFirstName, testLastName, testPersonalID, testaddress1);
+        StorageContainerPtr S2 = make_shared<StorageContainer>();
+        ClientPtr K1 = make_shared<Client>(testFirstName, testLastName, testPersonalID, testaddress1);
 
         // add test
         S2->getClientRepository()->add(nullptr);
@@ -83,15 +83,11 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteStorgaeContainer, TestSuiteStorageContainerFix
 
         //report test
         BOOST_TEST(S2->getClientRepository()->report() == "Client Szymon Ziemecki 123 Address wwa jasna 1\n");
-
-
-        delete S2;
-        delete K1;
     }
 
     BOOST_AUTO_TEST_CASE(VehicleRepositoryMethodsTest) {
-        StorageContainerPtr S2 = new StorageContainer();
-        BicyclePtr V1 = new Bicycle("ELC1", testbasePrice);
+        StorageContainerPtr S2 = make_shared<StorageContainer>();
+        BicyclePtr V1 = make_shared<Bicycle>("ELC1", testbasePrice);
 
         // add test
         S2->getVehicleRepository()->add(nullptr);
@@ -116,16 +112,14 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteStorgaeContainer, TestSuiteStorageContainerFix
         BOOST_TEST(S2->getVehicleRepository()->size() == 1);
 
         //report test
-        BOOST_TEST(S2->getVehicleRepository()->report() == "Bicycle ELC 20\n");
-        delete S2;
-        delete V1;
+        BOOST_TEST(S2->getVehicleRepository()->report() == "Bicycle ELC 20\n");;
     }
 
     BOOST_AUTO_TEST_CASE(RentRepositoryMethodsTest) {
-        StorageContainerPtr S2 = new StorageContainer();
-        ClientPtr K1 = new Client(testFirstName, testLastName, testPersonalID, testaddress1);
-        BicyclePtr V1 = new Bicycle(testPlateNumber, testbasePrice);
-        RentPtr R1 = new Rent(2, K1, V1, pt::not_a_date_time);
+        StorageContainerPtr S2 = make_shared<StorageContainer>();
+        ClientPtr K1 = make_shared<Client>(testFirstName, testLastName, testPersonalID, testaddress1);
+        BicyclePtr V1 = make_shared<Bicycle>(testPlateNumber, testbasePrice);
+        RentPtr R1 = make_shared<Rent>(2, K1, V1, pt::not_a_date_time);
 
         //add test
         S2->getRentRepository()->add(nullptr);
@@ -154,12 +148,6 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteStorgaeContainer, TestSuiteStorageContainerFix
         //report test
         BOOST_TEST(S2->getRentRepository()->report() == "1 Szymon Ziemecki Bicycle ELC 20\n 2021-May-16 00:00:00 not-a-date-time\n");
 
-
-
-        delete S2;
-        delete V1;
-        delete R1;
-        delete K1;
     }
 
 
