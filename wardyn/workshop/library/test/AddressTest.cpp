@@ -3,20 +3,29 @@
 //
 
 #include <boost/test/unit_test.hpp>
-#include <model/Address.h>
+#include "model/Address.h"
+#include "typedefs.h"
 
-BOOST_AUTO_TEST_SUITE(TestSuiteAddress)
+struct TestSuiteAddressFixture {
+    const std::string testCity = "Londyn";
+    const std::string testStreet = "Warecka";
+    const std::string testNumber = "13";
 
-    BOOST_AUTO_TEST_CASE(AddressConstructorTest)
-    {
-        Address a ("Los Angeles","Warecka","13");
-        BOOST_TEST_CHECK(a.getAddressInfo()=="Adres: Los Angeles, Warecka, 13");
+};
+
+BOOST_FIXTURE_TEST_SUITE(TestSuiteAddress, TestSuiteAddressFixture)
+
+    BOOST_AUTO_TEST_CASE(AddressConstructorTest) {
+        AddressPtr A = new Address(testCity, testStreet, testNumber);
+        BOOST_TEST(A->getcity() == testCity);
+        BOOST_TEST(A->getstreet() == testStreet);
+        BOOST_TEST(A->getnumber() == testNumber);
+        delete A;
     }
-    BOOST_AUTO_TEST_CASE(AddresssetcityTest)
-    {
-        Address a ("Moskwa","Julianowska","15");
-        BOOST_TEST_CHECK(a.getcity()=="Moskwa");
-        BOOST_TEST_CHECK(a.getstreet()=="Julianowska");
-        BOOST_TEST_CHECK(a.getnumber()=="15");
+
+    BOOST_AUTO_TEST_CASE(AddressGetAddressInfoTest) {
+        AddressPtr A = new Address(testCity, testStreet, testNumber);
+        BOOST_TEST(A->getAddressInfo() == "Adres: " + testCity + ", " + testStreet + ", " + testNumber);
+        delete A;
     }
 BOOST_AUTO_TEST_SUITE_END()

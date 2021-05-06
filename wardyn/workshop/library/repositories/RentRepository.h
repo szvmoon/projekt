@@ -23,6 +23,10 @@ public:
     void remove(RentPtr);
     const std::string report() const;
     int size ();
+    vector<RentPtr> findBy (RentPredicate) const;
+    vector<RentPtr> findAll ();
+
+
 };
 
 #endif //CARRENTALPROJECT_RENTREPOSITORY_H

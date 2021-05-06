@@ -5,24 +5,29 @@
 #include <boost/test/unit_test.hpp>
 #include <model/Client.h>
 #include <model/Address.h>
+#include <model/Bicycle.h>
 #include <iostream>
+#include "typedefs.h"
 
-struct TestSuiteClientFixture
-{
+struct TestSuiteClientFixture {
     std::string testFirstName = "Bartek";
     const string testLastName = "Sliwa";
     const string testPersonalID = "0000";
-    Address *testaddress1;
-    Address *testaddress2;
-    TestSuiteClientFixture()
-    {
-        testaddress1 = new Address("Londyn", "Warecka", "13");
-        testaddress2 = new Address("Warszawa", "Warszawska", "23");
+    pt::ptime testbeginTime=pt::ptime(gr::date(2021,5,16));
+
+    AddressPtr testaddress1;
+    AddressPtr testaddress2;
+    BicyclePtr testbicycle;
+
+    TestSuiteClientFixture() {
+        testaddress1 = new Address ("Londyn", "Warecka", "13");
+        testaddress2 = new Address ("Warszawa", "Warszawska", "23");
+        testbicycle = new Bicycle ("EZG42069", 10);
     }
-    ~TestSuiteClientFixture()
-    {
+    ~TestSuiteClientFixture() {
         delete testaddress1;
         delete testaddress2;
+        delete testbicycle;
     }
 };
 
@@ -57,4 +62,29 @@ BOOST_FIXTURE_TEST_SUITE(TestSuiteClient, TestSuiteClientFixture)
         t.setaddresspointer(nullptr);
         BOOST_TEST_CHECK(t.getaddresspointer()==&a2);
     }
+    BOOST_AUTO_TEST_CASE(ClientRemoveRentTest) {
+        ClientPtr t = new Client(testFirstName, testLastName, testPersonalID, testaddress1);
+        RentPtr r = new Rent(1, t, testbicycle, testbeginTime);
+        BOOST_TEST(t->getRent() == "Current Rents:\n" + r->getRentInfo());
+        t->removeRent(r);
+        BOOST_TEST(t->getRent() == "Current Rents:\n");
+
+        delete r;
+        delete t;
+    }
+
+    BOOST_AUTO_TEST_CASE(ClientGetClientInfoTest) {
+        ClientPtr t = new Client(testFirstName, testLastName, testPersonalID, testaddress1);
+        BOOST_TEST(t->getClientInfo() ==
+                   "Client " + testFirstName + " " + testLastName + " " + testPersonalID + " " +
+                   testaddress1->getAddressInfo() + "\n");
+        delete t;
+    }
+    BOOST_AUTO_TEST_CASE(ClientGetFullClientInfoTest) {
+        ClientPtr t = new Client(testFirstName, testLastName, testPersonalID, testaddress1);
+        BOOST_TEST(t->getFullClientInfo() == t->getClientInfo() + t->getRent());
+
+        delete t;
+    }
+
 BOOST_AUTO_TEST_SUITE_END()

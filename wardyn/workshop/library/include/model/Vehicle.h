@@ -16,8 +16,9 @@ private:
     bool rented=false;
 public:
     Vehicle(const string&, const int&);
-    ~Vehicle();
-    const string getVehicleInfo () const;
+    virtual ~Vehicle()=0;
+
+    virtual const string getVehicleInfo () const;
     const string getplateNumber () const;
     const bool getrented () const;
     const int getbasePrice () const;

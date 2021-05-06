@@ -27,24 +27,3 @@ string Address::getnumber() const
 {
     return (number);
 }
-/*void Address::setcity (string newcity)
-{
-    if (newcity != "")
-    {
-        city = newcity;
-    }
-}
-void Address::setstreet (string newstreet)
-{
-    if (newstreet != "")
-    {
-        street = newstreet;
-    }
-}
-void Address::setnumber (string newnumber)
-{
-    if (newnumber != "")
-    {
-        number = newnumber;
-    }
-}*/
