@@ -22,6 +22,8 @@ public:
     void remove(ClientPtr);
     const std::string report() const;
     int size ();
+    vector<ClientPtr> findBy(ClientPredicate) const;
+    vector<ClientPtr> findAll();
 };
 
 

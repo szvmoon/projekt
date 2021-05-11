@@ -30,10 +30,12 @@ public:
     string getlastName () const;
     AddressPtr getaddresspointer () const;
     void getRent() const;
+
     void setfirstName (const string&);
     void setlastName (const string&);
     void setaddresspointer (Address*);
     void setRent(RentPtr);
+    void removeRent(RentPtr);
 
 
     vector<RentPtr> currentRents;

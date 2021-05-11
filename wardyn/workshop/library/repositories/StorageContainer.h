@@ -7,7 +7,7 @@
 #include "ClientRepository.h"
 #include "VehicleRepository.h"
 #include "RentRepository.h"
-#include "typedefs.h'
+#include "typedefs.h"
 
 class StorageContainer {
 private:
@@ -20,7 +20,6 @@ public:
     ClientRepository getClientRepository();
     VehicleRepository getVehicleRepository();
     RentRepository getRentRepository();
-
 };
 
 #endif //CARRENTALPROJECT_STORAGECONTAINER_H
