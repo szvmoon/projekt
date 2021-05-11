@@ -25,6 +25,14 @@ string Vehicle::getVehicleInfo()  {
     return (plateNumber + " " + to_string(basePrice));
 }
 
+const void Vehicle::setArchive(bool arg) {
+    archive = arg;
+}
+
+const bool Vehicle::isArchive() {
+    return archive;
+}
+
 //const bool& Vehicle::isRented() const { return rented; }
 
 //void Vehicle::set_RentStatus(const bool &status) { rented = status; }

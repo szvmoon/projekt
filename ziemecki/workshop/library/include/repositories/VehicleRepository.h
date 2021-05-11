@@ -29,6 +29,8 @@ public:
     int size();
     std::vector<VehiclePtr> findBy(VehiclePredicate) const;
     std::vector<VehiclePtr> findAll();
+    VehiclePtr findByPlateNumber(const std::string &plateNumber);
+
 
 };
 

@@ -10,11 +10,9 @@
 
 class Silver : public ClientType{
 public:
-    Silver();
-    ~Silver();
-    virtual int getMaxVehicles() override;
-    virtual std::string getTypeInfo() override;
-    virtual double applyDiscount(const double &) override;
+    int getMaxVehicles() override;
+    std::string getTypeInfo() override;
+    double applyDiscount(double price) override;
 };
 
 

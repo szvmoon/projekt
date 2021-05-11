@@ -25,7 +25,7 @@ public:
     int size();
     std::vector<ClientPtr> findBy(ClientPredicate);
     std::vector<ClientPtr> findAll();
-
+    ClientPtr findByPersonalId(const std::string &personalId) const;
 };
 
 

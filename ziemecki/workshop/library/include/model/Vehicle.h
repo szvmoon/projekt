@@ -11,6 +11,7 @@
 class Vehicle {
 private:
     std::string plateNumber;
+    bool archive = false;
     //bool rented=false;
 protected:
     int basePrice;
@@ -22,10 +23,12 @@ public:
     //Gettery
     const std::string& get_plateNumber() const;
     const int& get_basePrice() const;
+    const bool isArchive() const;
     //const bool& isRented() const;
     //Settery
     void set_plateNumber(const std::string &);
     void set_basePrice(const int&);
+    const void setArchive(bool);
     //void set_RentStatus(const bool&);
 
     //Metody

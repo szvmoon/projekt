@@ -10,11 +10,9 @@
 
 class Platinum : public ClientType {
 public:
-    Platinum();
-    ~Platinum();
-    virtual int getMaxVehicles() override;
-    virtual std::string getTypeInfo() override;
-    virtual double applyDiscount(const double &) override;
+    int getMaxVehicles() override;
+    std::string getTypeInfo() override;
+    virtual double applyDiscount(double price) override;
 };
 
 

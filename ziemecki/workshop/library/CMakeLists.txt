@@ -10,10 +10,6 @@ set(SOURCE_FILES
         src/model/MotorVehicle.cpp
         src/model/Bicycle.cpp
         src/model/Moped.cpp
-        src/repositories/ClientRepository.cpp
-        src/repositories/RentRepository.cpp
-        src/repositories/VehicleRepository.cpp
-        src/repositories/StorageContainer.cpp
         src/model/ClientType.cpp
         src/model/Default.cpp
         src/model/Bronze.cpp
@@ -21,6 +17,14 @@ set(SOURCE_FILES
         src/model/Gold.cpp
         src/model/Platinum.cpp
         src/model/Diamond.cpp
+        src/repositories/ClientRepository.cpp
+        src/repositories/RentRepository.cpp
+        src/repositories/VehicleRepository.cpp
+        src/repositories/StorageContainer.cpp
+        src/managers/ClientManager.cpp
+        src/managers/VehicleManager.cpp
+        src/managers/RentManager.cpp
+        src/managers/LogicContainer.cpp
         )
 #Utwórz bibliotekę typu STATIC, SHARED albo MODULE ze wskazanych źródeł
 add_library(Library ${SOURCE_FILES})

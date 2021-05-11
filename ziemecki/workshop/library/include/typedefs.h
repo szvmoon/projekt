@@ -6,6 +6,7 @@
 #define CARRENTAL_TYPEDEFS_H
 
 #include <memory>
+#include <functional>
 
 class Client;
 class Vehicle;
@@ -47,9 +48,10 @@ typedef std::shared_ptr<Silver> SilverPtr;
 typedef std::shared_ptr<Gold> GoldPtr;
 typedef std::shared_ptr<Platinum> PlatinumPtr;
 typedef std::shared_ptr<Diamond> DiamondPtr;
-typedef bool (*ClientPredicate)(ClientPtr);
-typedef bool (*RentPredicate)(RentPtr);
-typedef bool (*VehiclePredicate)(VehiclePtr);
+typedef std::function<bool(ClientPtr)> ClientPredicate;
+typedef std::function<bool(AddressPtr)> AddressPredicate;
+typedef std::function<bool(RentPtr)> RentPredicate;
+typedef std::function<bool(VehiclePtr)> VehiclePredicate;
 
 
 

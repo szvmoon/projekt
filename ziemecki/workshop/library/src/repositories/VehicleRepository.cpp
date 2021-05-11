@@ -56,3 +56,15 @@ vector<VehiclePtr> VehicleRepository::findBy(VehiclePredicate predicate) const{
 std::vector<VehiclePtr> VehicleRepository::findAll()  {
     return findBy([](VehiclePtr ptr){return ptr != nullptr;});
 }
+
+VehiclePtr VehicleRepository::findByPlateNumber(const string &plateNumber) {
+        VehiclePtr found = nullptr;
+        for (unsigned int i = 0; i < VehicleRepository.size(); i++) {
+            VehiclePtr vehicle = get(i);
+            if (vehicle != nullptr && vehicle->get_plateNumber() == plateNumber) {
+                found = vehicle;
+            }
+        }
+        return found;
+    }
+}

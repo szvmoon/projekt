@@ -11,9 +11,9 @@ class ClientType {
 public:
     ClientType();
     virtual ~ClientType() = 0;
-    virtual int getMaxVehicles();
-    virtual double applyDiscount();
-    virtual std::string getTypeInfo();
+    virtual int getMaxVehicles()=0;
+    virtual double applyDiscount(double price)=0;
+    virtual std::string getTypeInfo()=0;
 };
 
 

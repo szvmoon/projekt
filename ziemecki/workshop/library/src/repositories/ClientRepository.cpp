@@ -56,3 +56,13 @@ std::vector<ClientPtr> ClientRepository::findAll() {
     return findBy([](ClientPtr ptr){return ptr != nullptr;});
 }
 
+ClientPtr ClientRepository::findByPersonalId(const std::string &personalId) const {
+    ClientPtr found = nullptr;
+    for (unsigned int i = 0; i < clientRepository.size(); i++) {
+        ClientPtr client = get(i);
+        if (client != nullptr && client->get_personalID() == personalId) {
+            found = client;
+        }
+    }
+    return found;
+}

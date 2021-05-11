@@ -6,10 +6,16 @@
 
 using namespace std;
 
-Client::Client(const string &name, const string &surname, const string &pid, AddressPtr address) : firstName(name),
+Client::Client(const string &name, const string &surname, const string &pid, AddressPtr address, ClientTypePtr clientType) : firstName(name),
                                                                                                  lastName(surname),
                                                                                                  personalID(pid),
-                                                                                                 address(address) {}
+                                                                                                 address(address),
+                                                                                                 clientType(clientType){}
+
+Client::Client(const string &name, const string &surname, const string &pid, AddressPtr address) : firstName(name),
+                                                                                                                             lastName(surname),
+                                                                                                                             personalID(pid),
+                                                                                                                             address(address){}
 
 Client::~Client() {}
 
@@ -49,8 +55,16 @@ int Client::getMaxVehicles() {
     return clientType->getMaxVehicles();
 }
 
-double Client::applyDiscount() {
-    return clientType->applyDiscount();
+double Client::applyDiscount(double price) {
+    return clientType->applyDiscount(price);
+}
+
+const int Client::isArchive() const {
+    return archive;
+}
+
+const void Client::setArchive(bool arg) {
+    archive=arg;
 }
 /*
 void Client::add_Rent(RentPtr ptr) {

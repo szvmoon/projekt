@@ -4,14 +4,16 @@
 
 #include "model/Default.h"
 
+using namespace std;
+
 int Default::getMaxVehicles() {
     return 1;
 }
 
-double Default::applyDiscount() {
+double Default::applyDiscount(double price) {
     return 0;
 }
 
 std::string Default::getTypeInfo() {
-    return "Default MaxRents: 1 Discount: 0"
+    return "Default Client MaxRents: 1 Discount: 0";
 }

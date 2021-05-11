@@ -10,11 +10,9 @@
 
 class Gold : public ClientType {
 public:
-    Gold();
-    ~Gold();
-    virtual std::string getTypeInfo() override;
-    virtual int getMaxVehicles() override;
-    virtual double applyDiscount(const double &) override;
+    std::string getTypeInfo() override;
+    int getMaxVehicles() override;
+    double applyDiscount(double price) override;
 };
 
 

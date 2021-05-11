@@ -22,13 +22,14 @@ private:
     std::string personalID;
     AddressPtr address;
     ClientTypePtr clientType;
+    bool archive = false;
     //std::vector <RentPtr> currentRents;
 
 public:
     //konstruktor
     //lista inicjalizacyjna konstruktora
+    Client(const std::string&, const std::string&, const std::string&, AddressPtr, ClientTypePtr);
     Client(const std::string&, const std::string&, const std::string&, AddressPtr);
-
     //destruktor
     ~Client();
 
@@ -42,6 +43,8 @@ public:
 
     const AddressPtr get_Address() const;
 
+    const isArchive() const;
+
     // std::string get_Rents();
 
     //settery
@@ -51,6 +54,8 @@ public:
     const void set_lastName(const std::string&);
 
     const void set_Address(AddressPtr);
+
+    const void setArchive(bool);
 
     //metody/operacje klasy
 
@@ -66,7 +71,7 @@ public:
 
     int getMaxVehicles();
 
-    double applyDiscount();
+    double applyDiscount(double);
 
 
 };

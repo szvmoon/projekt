@@ -11,7 +11,7 @@
 class Default : public ClientType{
 public:
     virtual int getMaxVehicles() override;
-    virtual double applyDiscount() override;
+    virtual double applyDiscount(double price) override;
     virtual std::string getTypeInfo() override;
 };
 
