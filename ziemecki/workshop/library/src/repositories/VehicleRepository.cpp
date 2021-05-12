@@ -59,7 +59,7 @@ std::vector<VehiclePtr> VehicleRepository::findAll()  {
 
 VehiclePtr VehicleRepository::findByPlateNumber(const string &plateNumber) {
         VehiclePtr found = nullptr;
-        for (unsigned int i = 0; i < VehicleRepository.size(); i++) {
+        for (unsigned int i = 0; i < vehicleRepository.size(); i++) {
             VehiclePtr vehicle = get(i);
             if (vehicle != nullptr && vehicle->get_plateNumber() == plateNumber) {
                 found = vehicle;
@@ -67,4 +67,4 @@ VehiclePtr VehicleRepository::findByPlateNumber(const string &plateNumber) {
         }
         return found;
     }
-}
+

@@ -11,18 +11,20 @@ ClientPtr ClientManager::getClient(const std::string &personalId) {
 }
 
 ClientPtr ClientManager::registerClient(const std::string &firstName, const std::string &lastName, const std::string &personalId,AddressPtr address, ClientTypePtr clientType) {
-    if(clientRepository.findByPersonalId(personalId)->get_personalID() == personalId)
-        return clientRepository.findByPersonalId(personalId);
-    else {
+    ClientPtr client = clientRepository.findByPersonalId(personalId);
+    if(client == nullptr)
+    {
         ClientPtr newClient = std::make_shared<Client>(firstName, lastName, personalId, address, clientType);
         clientRepository.add(newClient);
         return newClient;
     }
 
+    return client;
+
 }
 
 void ClientManager::unregisterClient(ClientPtr &client) {
-    if(getClient(client->get_personalID() != nullptr))
+    if(getClient(client->get_personalID()) != nullptr)
         client->setArchive(true);
 }
 

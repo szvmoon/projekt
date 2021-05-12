@@ -43,7 +43,7 @@ public:
 
     const AddressPtr get_Address() const;
 
-    const isArchive() const;
+    const bool isArchive() const;
 
     // std::string get_Rents();
 

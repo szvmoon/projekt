@@ -9,7 +9,6 @@
 
 class ClientType {
 public:
-    ClientType();
     virtual ~ClientType() = 0;
     virtual int getMaxVehicles()=0;
     virtual double applyDiscount(double price)=0;

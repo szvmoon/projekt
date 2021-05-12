@@ -27,6 +27,7 @@ class Silver;
 class Gold;
 class Platinum;
 class Diamond;
+class LogicContainer;
 
 typedef std::shared_ptr<Client> ClientPtr;
 typedef std::shared_ptr<Vehicle> VehiclePtr;
@@ -52,6 +53,7 @@ typedef std::function<bool(ClientPtr)> ClientPredicate;
 typedef std::function<bool(AddressPtr)> AddressPredicate;
 typedef std::function<bool(RentPtr)> RentPredicate;
 typedef std::function<bool(VehiclePtr)> VehiclePredicate;
+typedef std::shared_ptr<LogicContainer> LogicContainerPtr;
 
 
 

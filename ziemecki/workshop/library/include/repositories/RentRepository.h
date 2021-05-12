@@ -25,6 +25,9 @@ public:
     int size();
     std::vector<RentPtr> findBy(RentPredicate) ;
     std::vector<RentPtr> findAll();
+    std::vector<RentPtr> findByClient(ClientPtr client) const;
+    RentPtr findByVehicle(VehiclePtr vehicle) const;
+    unsigned int getLastRentId() const;
 };
 
 

@@ -60,3 +60,37 @@ std::vector<RentPtr> RentRepository::findAll() {
     return findBy([](RentPtr ptr){return ptr != nullptr;});
 }
 
+RentPtr RentRepository::findByVehicle(VehiclePtr vehicle) const {
+    RentPtr found = nullptr;
+    for (unsigned int i = 0; i < rentRepository.size(); i++) {
+        RentPtr rent = get(i);
+        if (rent != nullptr && vehicle == rent->get_vehicle()) {
+            found = rent;
+        }
+    }
+    return found;
+}
+
+std::vector<RentPtr> RentRepository::findByClient(ClientPtr client) const {
+    std::vector<RentPtr> found;
+    for (unsigned int i = 0; i < rentRepository.size(); i++) {
+        RentPtr rent = get(i);
+        if (rent != nullptr && client == rent->get_client()) {
+            found.push_back(rent);
+        }
+    }
+    return found;
+}
+
+unsigned int RentRepository::getLastRentId() const {
+    unsigned int max = 0;
+    for (unsigned int i = 0; i < rentRepository.size(); i++) {
+        RentPtr rent = get(i);
+        if (rent != nullptr) {
+            if (max < rent->get_ID())
+                max = rent->get_ID();
+        }
+    }
+    return max;
+}
+

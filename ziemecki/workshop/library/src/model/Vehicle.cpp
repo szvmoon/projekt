@@ -29,7 +29,7 @@ const void Vehicle::setArchive(bool arg) {
     archive = arg;
 }
 
-const bool Vehicle::isArchive() {
+const bool Vehicle::isArchive() const{
     return archive;
 }
 
