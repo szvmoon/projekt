@@ -5,9 +5,14 @@
 #ifndef CHECKERS_UNIT_H
 #define CHECKERS_UNIT_H
 
+#include <Field.h>
+#include <typedefs.h>
 
 class Unit {
-
+public:
+    Unit();
+    virtual ~Unit()=0;
+    virtual void move(FieldPtr start,FieldPtr destination);
 };
 
 

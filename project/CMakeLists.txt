@@ -14,7 +14,7 @@ set(CMAKE_VERBOSE_MAKEFILE TRUE)
 
 #Source files here
 set(SOURCE_FILES
-        src/Game.cpp include/Game.h src/Player.cpp include/Player.h src/Unit.cpp include/Unit.h src/Basic.cpp include/Basic.h src/Timed.cpp include/Timed.h src/Board.cpp include/Board.h src/Field.cpp include/Field.h src/Checker.cpp include/Checker.h src/Bishop.cpp include/Bishop.h src/Rook.cpp include/Rook.h src/King.cpp include/King.h include/typedefs.h)
+        src/main.cpp src/Game.cpp include/Game.h src/Player.cpp include/Player.h src/Unit.cpp include/Unit.h src/Basic.cpp include/Basic.h src/Timed.cpp include/Timed.h src/Board.cpp include/Board.h src/Field.cpp include/Field.h src/Checker.cpp include/Checker.h src/Bishop.cpp include/Bishop.h src/Rook.cpp include/Rook.h src/King.cpp include/King.h include/typedefs.h)
 
 add_executable(Project ${SOURCE_FILES})
 
@@ -32,7 +32,7 @@ enable_testing()
 
 #Test source files here
 set(SOURCE_TEST_FILES
-        src/Game.cpp include/Game.h src/Player.cpp include/Player.h src/Unit.cpp include/Unit.h src/Basic.cpp include/Basic.h src/Timed.cpp include/Timed.h src/Board.cpp include/Board.h src/Field.cpp include/Field.h src/Checker.cpp include/Checker.h src/King.cpp include/King.h include/typedefs.h)
+        src/Game.cpp src/main.cpp include/Game.h src/Player.cpp include/Player.h src/Unit.cpp include/Unit.h src/Basic.cpp include/Basic.h src/Timed.cpp include/Timed.h src/Board.cpp include/Board.h src/Field.cpp include/Field.h src/Checker.cpp include/Checker.h src/King.cpp include/King.h include/typedefs.h)
 
 add_executable(TestProject ${SOURCE_TEST_FILES})
 

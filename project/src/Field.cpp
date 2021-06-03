@@ -3,9 +3,24 @@
 //
 
 #include "Field.h"
+#include <Unit.h>
+#include <typedefs.h>
 
-Field::Field() {}
+Field::Field(int _nr) : nr(_nr){}
 
 Field::~Field() {
 
 }
+
+int Field::getNr() const {
+    return nr;
+}
+
+void Field::setUnit(UnitPtr _unit) {
+    unit = _unit;
+}
+
+UnitPtr Field::getUnit() {
+    return unit;
+}
+

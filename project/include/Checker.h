@@ -5,8 +5,12 @@
 #ifndef CHECKERS_CHECKER_H
 #define CHECKERS_CHECKER_H
 
-
-class Checker {
+#include <Unit.h>
+class Checker : public Unit , public std::enable_shared_from_this<Checker>{
+public:
+    Checker();
+    ~Checker();
+    void move(FieldPtr start,FieldPtr destination) override;
 
 };
 

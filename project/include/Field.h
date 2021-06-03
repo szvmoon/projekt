@@ -6,13 +6,20 @@
 #define CHECKERS_FIELD_H
 
 #include <Unit.h>
+#include <memory>
+#include <typedefs.h>
 
 class Field {
 private:
-    Unit unit;
+    UnitPtr unit=nullptr;
+    int nr;
 public:
-    Field();
+    Field(int _nr);
     ~Field();
+    void setUnit(UnitPtr _unit);
+    int getNr() const;
+    UnitPtr getUnit();
+
 };
 
 

@@ -15,6 +15,9 @@ private:
 public:
     Board();
     ~Board();
+    FieldPtr getField(int id);
+    void displayBoard();
+
 
 };
 

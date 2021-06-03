@@ -3,3 +3,15 @@
 //
 
 #include "Unit.h"
+
+Unit::Unit() {}
+
+Unit::~Unit() {
+
+}
+
+void Unit::move(FieldPtr start, FieldPtr destination) {
+
+}
+
+
