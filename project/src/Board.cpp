@@ -60,3 +60,12 @@ void Board::displayBoard() {
     }
     cout << " ----------------------------\n";*/
 }
+
+void Board::unitToPlayer(PlayerPtr player, UnitPtr unit) {
+    for(int i=0; i<64;i++) {
+        if(i<=32 && fields[i]->getUnit() != nullptr) {
+            player->units.push_back(board->fields[i]->getUnit());
+        } else if (fields[i]->getUnit() != nullptr)
+
+    }
+}

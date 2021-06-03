@@ -11,7 +11,7 @@
 class Interface {
 public:
     Interface();
-    virtual ~Interface();
+    virtual ~Interface()=0;
     virtual void displayBoard(BoardPtr board);
 
 };

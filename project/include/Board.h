@@ -17,7 +17,7 @@ public:
     ~Board();
     FieldPtr getField(int id);
     static void displayBoard();
-
+    void unitToPlayer(PlayerPtr player, UnitPtr unit);
     std::vector<FieldPtr> fields;
 
 
