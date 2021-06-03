@@ -3,3 +3,27 @@
 //
 
 #include "Basic.h"
+
+Basic::Basic() {}
+
+Basic::~Basic() {
+
+}
+
+void Basic::play(PlayerPtr player1, PlayerPtr player2, BoardPtr board) {
+    int id=1;
+    while  (!isOver()){
+        TextInterface::displayBoard(board);
+        switch (id) {
+            case 1:
+                Unit::move()
+                break;
+            case 2:
+                break;
+        }
+    }
+}
+
+bool Basic::isOver() {
+    return Game::isOver();
+}

@@ -18,6 +18,18 @@ Board::Board() {
         fields.push_back(field);
     }
 
+    for(int i=0;i<16;i++)
+    {
+        UnitPtr unit = make_shared<Checker>();
+        fields[i]->setUnit(unit);
+    }
+    for(int i=48;i<64;i++)
+    {
+        UnitPtr unit = make_shared<Checker>();
+        fields[i]->setUnit(unit);
+    }
+
+
 }
 
 Board::~Board() {
@@ -30,7 +42,7 @@ FieldPtr Board::getField(int id) {
 }
 
 void Board::displayBoard() {
-    cout << "  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |\n";
+/*    cout << "  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |\n";
     cout << " ----------------------------\n";
     cout << " | ";
     for(int i=0; i<64;i++) {
@@ -44,7 +56,7 @@ void Board::displayBoard() {
             cout << endl;
             if(i!=63)
             cout << " | ";
+        }
     }
-}
-    cout << " ----------------------------\n";
+    cout << " ----------------------------\n";*/
 }

@@ -4,14 +4,17 @@
 
 #ifndef CHECKERS_GAME_H
 #define CHECKERS_GAME_H
+#include <Board.h>
+#include "TextInterface.h"
 
 
 class Game {
 public:
-    virtual ~Game()=0;
+
     Game();
-    void play();
-    bool isOver();
+    virtual ~Game()=0;
+    virtual void play(PlayerPtr player1, PlayerPtr player2, BoardPtr board);
+    virtual bool isOver();
 };
 
 

@@ -10,7 +10,7 @@ Game::~Game() {
 
 }
 
-void Game::play() {
+void Game::play(PlayerPtr player1, PlayerPtr player2, BoardPtr board) {
 
 }
 

@@ -6,11 +6,12 @@
 #define CHECKERS_PLAYER_H
 
 #include <string>
-
+#include <vector>
 
 class Player {
 private:
     std::string name;
+
 public:
     Player(const std::string &name);
     ~Player();

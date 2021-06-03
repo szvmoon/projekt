@@ -11,12 +11,14 @@
 
 class Board {
 private:
-    std::vector<FieldPtr> fields;
+
 public:
     Board();
     ~Board();
     FieldPtr getField(int id);
-    void displayBoard();
+    static void displayBoard();
+
+    std::vector<FieldPtr> fields;
 
 
 };
