@@ -13,7 +13,7 @@
 using namespace std;
 
 Board::Board() {
-    for(int i=0; i<=64;i++)
+    for(int i=0; i<64;i++)
     {
         FieldPtr field = make_shared<Field>(i);
         fields.push_back(field);
@@ -36,6 +36,14 @@ void Board::setUpPieces(BoardPtr board, PlayerPtr p1, PlayerPtr p2) {
         board->getField(64-i)->setUnit(p2->getUnit(i+1));
     }
 
+}
+
+int Board::getFieldId(FieldPtr field) {
+    for(int i=0; i< fields.size();i++)
+    {
+        if(fields[i]==field)
+            return i;
+    }
 };
 
 
