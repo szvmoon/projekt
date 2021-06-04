@@ -16,7 +16,7 @@ void Basic::play(PlayerPtr player1, PlayerPtr player2, BoardPtr board) {
         TextInterface::displayBoard(board);
         switch (id) {
             case 1:
-                Unit::move()
+                Unit::move();
                 break;
             case 2:
                 break;
