@@ -16,7 +16,7 @@ public:
     virtual ~Unit()=0;
     bool isAlive() const;
     void setAlive(bool alive);
-
+    virtual bool isMoveLegal(FieldPtr start,FieldPtr destination);
 };
 
 

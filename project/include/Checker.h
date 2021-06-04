@@ -10,7 +10,7 @@ class Checker : public Unit , public std::enable_shared_from_this<Checker>{
 public:
     Checker();
     ~Checker();
-
+    bool isMoveLegal(FieldPtr start,FieldPtr destination) override;
 
 
 };
