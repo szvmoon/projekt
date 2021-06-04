@@ -16,9 +16,9 @@ public:
     Board();
     ~Board();
     FieldPtr getField(int id);
-    static void displayBoard();
-    void unitToPlayer(PlayerPtr player, UnitPtr unit);
     std::vector<FieldPtr> fields;
+    void setUpPieces(BoardPtr board, PlayerPtr p1, PlayerPtr p2);
+
 
 
 };

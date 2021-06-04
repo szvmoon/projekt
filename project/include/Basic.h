@@ -7,6 +7,7 @@
 
 
 #include "Game.h"
+#include "TextInterface.h"
 
 class Basic : public Game {
 public:

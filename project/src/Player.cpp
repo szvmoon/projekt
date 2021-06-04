@@ -4,18 +4,29 @@
 
 
 #include "Player.h"
+#include <memory>
 
-Player::Player(const std::string &name) : name(name) {}
+
+using namespace std;
+
+Player::Player(const std::string &name) : name(name) {
+    for(int i=0;i<16;i++)
+    {
+        UnitPtr unit = make_shared<Checker>();
+        units.push_back(unit);
+    }
+}
 
 Player::~Player() {}
 
-void Player::unitToPlayer1(BoardPtr board, UnitPtr unit) {
-    for(int i=0; i<24;i++) {
-        units.push_back(board->fields[i]->getUnit());
-    }
+UnitPtr Player::getUnit(int id) {
+    return units[id-1];
 }
-void Player::unitToPlayer2(BoardPtr board, UnitPtr unit) {
-    for(int i=48; i<=64;i++) {
-        units.push_back(board->fields[i]->getUnit());
-    }
+
+const string &Player::getName() const {
+    return name;
 }
+
+
+
+

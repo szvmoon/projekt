@@ -6,6 +6,7 @@
 #include "Field.h"
 #include <Checker.h>
 #include <iostream>
+#include <Player.h>
 #include "typedefs.h"
 #include <string>
 
@@ -18,18 +19,6 @@ Board::Board() {
         fields.push_back(field);
     }
 
-    for(int i=0;i<16;i++)
-    {
-        UnitPtr unit = make_shared<Checker>();
-        fields[i]->setUnit(unit);
-    }
-    for(int i=48;i<64;i++)
-    {
-        UnitPtr unit = make_shared<Checker>();
-        fields[i]->setUnit(unit);
-    }
-
-
 }
 
 Board::~Board() {
@@ -41,31 +30,14 @@ FieldPtr Board::getField(int id) {
     return fields[id-1];
 }
 
-void Board::displayBoard() {
-/*    cout << "  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |\n";
-    cout << " ----------------------------\n";
-    cout << " | ";
-    for(int i=0; i<64;i++) {
-        if (fields[i] != nullptr && fields[i]->getUnit() == nullptr)
-            cout << " . ";
-        else if(fields[i]->getUnit() != nullptr)
-            cout<<" P ";
-
-        if ((i + 1) % 8 == 0){
-            cout << " | ";
-            cout << endl;
-            if(i!=63)
-            cout << " | ";
-        }
+void Board::setUpPieces(BoardPtr board, PlayerPtr p1, PlayerPtr p2) {
+    for(int i=0;i<16;i++){
+        board->getField(i)->setUnit(p1->getUnit(i));
+        board->getField(63-i)->setUnit(p2->getUnit(i));
     }
-    cout << " ----------------------------\n";*/
-}
 
-void Board::unitToPlayer(PlayerPtr player, UnitPtr unit) {
-    for(int i=0; i<64;i++) {
-        if(i<=32 && fields[i]->getUnit() != nullptr) {
-            player->units.push_back(board->fields[i]->getUnit());
-        } else if (fields[i]->getUnit() != nullptr)
+};
 
-    }
-}
+
+
+

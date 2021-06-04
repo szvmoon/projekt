@@ -7,6 +7,7 @@
 
 
 #include "Interface.h"
+#include "Player.h"
 #include "Board.h"
 #include "Field.h"
 #include <memory>
@@ -14,9 +15,7 @@
 class TextInterface : public std::enable_shared_from_this<Checker>{
 public:
     TextInterface();
-
     virtual ~TextInterface();
-
     static void displayBoard(BoardPtr board);
     static void move(FieldPtr start, FieldPtr destination);
 

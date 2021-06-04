@@ -9,17 +9,19 @@
 #include <vector>
 #include "Unit.h"
 #include <Board.h>
+#include "typedefs.h"
+#include "Checker.h"
 
 class Player {
 private:
     std::string name;
     std::vector<UnitPtr> units;
-
 public:
     Player(const std::string &name);
     ~Player();
-    void unitToPlayer1(BoardPtr board, UnitPtr unit);
-    void unitToPlayer2(BoardPtr board, UnitPtr unit);
+    UnitPtr getUnit(int id);
+    const std::string &getName() const;
+
 
 
 };
