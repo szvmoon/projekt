@@ -32,8 +32,8 @@ FieldPtr Board::getField(int id) {
 
 void Board::setUpPieces(BoardPtr board, PlayerPtr p1, PlayerPtr p2) {
     for(int i=0;i<16;i++){
-        board->getField(i)->setUnit(p1->getUnit(i));
-        board->getField(63-i)->setUnit(p2->getUnit(i));
+        board->getField(i+1)->setUnit(p1->getUnit(i+1));
+        board->getField(64-i)->setUnit(p2->getUnit(i+1));
     }
 
 };
