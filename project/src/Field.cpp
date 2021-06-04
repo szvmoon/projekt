@@ -26,3 +26,4 @@ UnitPtr Field::getUnit() {
 void Field::setNr(int _nr) {
     nr=_nr;
 }
+

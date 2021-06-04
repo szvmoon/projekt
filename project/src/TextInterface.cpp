@@ -10,7 +10,8 @@ TextInterface::TextInterface()  {}
 TextInterface::~TextInterface() {}
 
 void TextInterface::displayBoard(BoardPtr board, PlayerPtr player1, PlayerPtr player2) {
-    std::cout << "  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |\n";
+    int ascii=65;
+    std::cout << "    1  2  3  4  5  6  7  8   \n";
     std::cout << " ----------------------------\n";
     std::cout << " | ";
     for(int i=0; i<64;i++) {
@@ -33,8 +34,9 @@ void TextInterface::displayBoard(BoardPtr board, PlayerPtr player1, PlayerPtr pl
         }
 
         if ((i + 1) % 8 == 0){
-            std::cout << " | ";
-            std::cout << std::endl;
+            char C =ascii;
+            std::cout << " | " << C << std::endl;
+            ascii+=1;
             if(i!=63)
                 std::cout << " | ";
         }
@@ -47,5 +49,28 @@ void TextInterface::move(FieldPtr start, FieldPtr destination) {
     }
     destination->setUnit(start->getUnit());
     start->setUnit(nullptr);
+}
+
+int TextInterface::calculateField(char &row, int &column) {
+    int number=row;
+    int fieldnr;
+    if (number == 65) {
+        fieldnr=column;
+    } else if (number == 66) {
+        fieldnr=8+column;
+    } else if (number == 67) {
+        fieldnr=16+column;
+    } else if (number == 68) {
+        fieldnr=24+column;
+    } else if (number == 69) {
+        fieldnr=32+column;
+    } else if (number == 70) {
+        fieldnr=40+column;
+    } else if (number == 61) {
+        fieldnr=48+column;
+    } else {
+        fieldnr=56+column;
+    }
+    return fieldnr;
 }
 

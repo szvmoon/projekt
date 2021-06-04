@@ -19,6 +19,7 @@ public:
     virtual ~TextInterface();
     static void displayBoard(BoardPtr board, PlayerPtr player1, PlayerPtr player2);
     static void move(FieldPtr start, FieldPtr destination);
+    static int calculateField(char &row, int &column);
 
 
 };

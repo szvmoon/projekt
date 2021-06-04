@@ -10,40 +10,52 @@ Basic::Basic() {}
 Basic::~Basic() {}
 
 void Basic::play(PlayerPtr player1, PlayerPtr player2, BoardPtr board) {
-        board->setUpPieces(board,player1,player2);
-        TextInterface::displayBoard(board, player1, player2);
+    board->setUpPieces(board,player1,player2);
+    TextInterface::displayBoard(board, player1, player2);
+    int start_n, end_n;
+    char start_c, end_c;
+    std::cout << "Podaj pole startowe:" << std::endl;
+    std::cin >> start_c >> start_n;
+    std::cout << "Podaj pole koncowe:" << std::endl;
+    std::cin >> end_c >> end_n;
 
-        int jednostki=player2->countPlayerUnits();
-        std::cout << jednostki << "\n";
-
-        TextInterface::move(board->getField(12),board->getField(52));
-
-        for (int i=1; i<=16; i++) {
-            if (!player2->getUnit(i)->isAlive()) {
-                std::cout << "Jednostka o id " << i << " jest martwa,dziala" << std::endl;
-            }
+    int jednostki=player2->countPlayerUnits();
+    std::cout << jednostki << "\n";
+    for (int i=1; i<=16; i++) {
+        if(player2->getUnit(i) == board->getField(TextInterface::calculateField(start_c, start_n))->getUnit()){
+            TextInterface::move(board->getField(TextInterface::calculateField(start_c,start_n)),board->getField(TextInterface::calculateField(end_c,end_n)));
+            continue;
+        } else {
+            std::cout << "To nie jest twoja jednostka.";
+            continue;
         }
+    }
 
-        TextInterface::displayBoard(board, player1, player2);
-
-        jednostki=player2->countPlayerUnits();
-        std::cout << jednostki << "\n";
-
-        for (int i=1; i<=16; i++) {
-            player2->getUnit(i)->setAlive(false);
+    for (int i=1; i<=16; i++) {
+        if (!player2->getUnit(i)->isAlive()) {
+            std::cout << "Jednostka o id " << i << " jest martwa,dziala" << std::endl;
         }
+    }
+    TextInterface::displayBoard(board, player1, player2);
 
-        bool koniec = isOver(player1,player2);
-        if (koniec) {
-            std::cout << "koniec gry";
-        }
-        //basic.cpp z tego co pisał szymon sb sprawdzał
+    jednostki=player2->countPlayerUnits();
+    std::cout << jednostki << "\n";
+
+    for (int i=1; i<=16; i++) {
+        player2->getUnit(i)->setAlive(false);
+    }
+
+    bool koniec = isOver(player1,player2);
+    if (koniec) {
+        std::cout << "koniec gry";
+    }
+    //basic.cpp z tego co pisał szymon sb sprawdzał
    /*
-        board->setUpPieces(board,player1,player2);
-        TextInterface::displayBoard(board);
-        if(board->getField(9)->getUnit()->isMoveLegal(board->getField(9),board->getField(15)))
-            TextInterface::move(board->getField(9),board->getField(15));
-              TextInterface::displayBoard(board);*/
+   board->setUpPieces(board,player1,player2);
+   TextInterface::displayBoard(board);
+   if(board->getField(9)->getUnit()->isMoveLegal(board->getField(9),board->getField(15)))
+   TextInterface::move(board->getField(9),board->getField(15));
+   TextInterface::displayBoard(board);*/
 
 }
 

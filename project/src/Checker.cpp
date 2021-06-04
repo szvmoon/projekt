@@ -1,7 +1,7 @@
 //
 // Created by student on 03.06.2021.
 //
-
+#include <iostream>
 #include "Checker.h"
 #include <memory>
 
