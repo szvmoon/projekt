@@ -4,18 +4,20 @@
 #include <iostream>
 #include "Unit.h"
 
-Unit::Unit() {}
+Unit::Unit(/*bool alive): alive(alive*/) {
+    /*alive=true;*/
+}
 
 Unit::~Unit() {
 
 }
 
-void Unit::move(FieldPtr start, FieldPtr destination) {
-
+bool Unit::isAlive() const {
+    return alive;
 }
 
-bool Unit::isMoveLegal(FieldPtr start, FieldPtr destination) {
-    return false;
+void Unit::setAlive(bool alive) {
+    Unit::alive = alive;
 }
 
 

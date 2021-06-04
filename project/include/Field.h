@@ -19,7 +19,6 @@ public:
     void setUnit(UnitPtr _unit);
     int getNr() const;
     UnitPtr getUnit();
-    void setNr(int _nr);
 
 };
 

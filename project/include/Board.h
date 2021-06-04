@@ -21,7 +21,6 @@ public:
     int getFieldId(FieldPtr field);
 
 
-
 };
 
 

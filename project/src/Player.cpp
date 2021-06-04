@@ -27,6 +27,16 @@ const string &Player::getName() const {
     return name;
 }
 
+int Player::countPlayerUnits() const {
+    int aliveunits=0;
+    for (int i=0; i<=15; i++) {
+        if (units[i]->isAlive()) {
+            aliveunits+=1;
+        }
+    }
+    return aliveunits;
+}
+
 
 
 

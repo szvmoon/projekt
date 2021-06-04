@@ -12,12 +12,9 @@
 class Basic : public Game {
 public:
     Basic();
-
     virtual ~Basic();
-
     void play(PlayerPtr player1, PlayerPtr player2, BoardPtr board) override;
-
-    bool isOver() override;
+    bool isOver(PlayerPtr player1, PlayerPtr player2) override;
 
 };
 

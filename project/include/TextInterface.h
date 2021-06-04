@@ -11,12 +11,13 @@
 #include "Board.h"
 #include "Field.h"
 #include <memory>
+#include <stdlib.h>
 
 class TextInterface : public std::enable_shared_from_this<Checker>{
 public:
     TextInterface();
     virtual ~TextInterface();
-    static void displayBoard(BoardPtr board);
+    static void displayBoard(BoardPtr board, PlayerPtr player1, PlayerPtr player2);
     static void move(FieldPtr start, FieldPtr destination);
 
 

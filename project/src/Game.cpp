@@ -14,6 +14,6 @@ void Game::play(PlayerPtr player1, PlayerPtr player2, BoardPtr board) {
 
 }
 
-bool Game::isOver() {
+bool Game::isOver(PlayerPtr player1, PlayerPtr player2) {
     return false;
 }

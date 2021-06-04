@@ -14,7 +14,7 @@ public:
     Game();
     virtual ~Game()=0;
     virtual void play(PlayerPtr player1, PlayerPtr player2, BoardPtr board);
-    virtual bool isOver();
+    virtual bool isOver(PlayerPtr player1, PlayerPtr player2);
 };
 
 
