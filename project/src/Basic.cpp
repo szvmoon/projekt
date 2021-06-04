@@ -16,6 +16,9 @@ void Basic::play(PlayerPtr player1, PlayerPtr player2, BoardPtr board) {
    // while  (!isOver()){
         board->setUpPieces(board,player1,player2);
         TextInterface::displayBoard(board);
+        if(board->getField(9)->getUnit()->isMoveLegal(board->getField(9),board->getField(15)))
+            TextInterface::move(board->getField(9),board->getField(15));
+              TextInterface::displayBoard(board);
      //   switch (id) {
          //   case 1:
 

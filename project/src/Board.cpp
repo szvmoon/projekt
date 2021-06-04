@@ -27,23 +27,19 @@ Board::~Board() {
 
 
 FieldPtr Board::getField(int id) {
-    return fields[id-1];
+    return fields[id];
 }
 
 void Board::setUpPieces(BoardPtr board, PlayerPtr p1, PlayerPtr p2) {
     for(int i=0;i<16;i++){
-        board->getField(i+1)->setUnit(p1->getUnit(i+1));
-        board->getField(64-i)->setUnit(p2->getUnit(i+1));
+        board->getField(i)->setUnit(p1->getUnit(i+1));
+        board->getField(63-i)->setUnit(p2->getUnit(i+1));
     }
 
 }
 
 int Board::getFieldId(FieldPtr field) {
-    for(int i=0; i< fields.size();i++)
-    {
-        if(fields[i]==field)
-            return i;
-    }
+    return 0;
 };
 
 
