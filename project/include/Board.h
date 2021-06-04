@@ -18,6 +18,7 @@ public:
     FieldPtr getField(int id);
     std::vector<FieldPtr> fields;
     void setUpPieces(BoardPtr board, PlayerPtr p1, PlayerPtr p2);
+    int getFieldId(FieldPtr field);
 
 
 

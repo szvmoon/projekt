@@ -14,5 +14,9 @@ void Unit::move(FieldPtr start, FieldPtr destination) {
 
 }
 
+bool Unit::isMoveLegal(FieldPtr start, FieldPtr destination) {
+    return false;
+}
+
 
 

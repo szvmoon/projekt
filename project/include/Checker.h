@@ -11,6 +11,7 @@ public:
     Checker();
     ~Checker();
     void move(FieldPtr start,FieldPtr destination) override;
+    bool isMoveLegal(FieldPtr start,FieldPtr destination) override;
 
 };
 

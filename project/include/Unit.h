@@ -13,6 +13,7 @@ public:
     Unit();
     virtual ~Unit()=0;
     virtual void move(FieldPtr start,FieldPtr destination);
+    virtual bool isMoveLegal(FieldPtr start,FieldPtr destination);
 };
 
 
