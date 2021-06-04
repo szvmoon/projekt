@@ -28,4 +28,8 @@ void TextInterface::displayBoard(BoardPtr board) {
     }
     std::cout << " ----------------------------\n";
 }
+void TextInterface::move(FieldPtr start, FieldPtr destination) {
+    destination->setUnit(start->getUnit());
+    start->setUnit(nullptr);
+}
 

@@ -9,14 +9,16 @@
 #include "Interface.h"
 #include "Board.h"
 #include "Field.h"
-class TextInterface {
+#include <memory>
+
+class TextInterface : public std::enable_shared_from_this<Checker>{
 public:
     TextInterface();
 
     virtual ~TextInterface();
 
     static void displayBoard(BoardPtr board);
-    virtual void move(FieldPtr start,FieldPtr destination);
+    static void move(FieldPtr start, FieldPtr destination);
 
 
 };
