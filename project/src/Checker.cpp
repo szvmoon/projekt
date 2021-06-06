@@ -69,3 +69,11 @@ bool Checker::isMoveLegal(FieldPtr start, FieldPtr destination) {
     cout<<"nielegalny";
     return false;
 }
+
+bool Checker::isPromotionAvailable() {
+    return true;
+}
+
+char Checker::getUnitType() {
+    return 'C';
+}

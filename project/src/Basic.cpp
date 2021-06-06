@@ -30,10 +30,8 @@ void Basic::play(PlayerPtr player1, PlayerPtr player2, BoardPtr board) {
     do {
         switch (turn) {
             case 1:
-                if (board->getField(15)->getUnit()->isMoveLegal(board->getField(15), board->getField(24))) {
-                    TextInterface::move(board->getField(15),
-                                        board->getField(24));
-                }
+                if(board->getField(15)->getUnit()->isMoveLegal(board->getField(15),board->getField(24)))
+                    TextInterface::move(board->getField(15),board->getField(24));
                 TextInterface::displayBoard(board, player1, player2);
                 ///pobranie pola startowego i koncowego
                 std::cout << "Podaj pole, z ktorego jednostka chcesz ruszyc:\n";
