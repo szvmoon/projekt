@@ -13,7 +13,7 @@ using namespace std;
 Player::Player(const std::string &name) : name(name) {
     for(int i=0;i<16;i++)
     {
-        UnitPtr unit = make_shared<Checker>();
+        UnitPtr unit = make_shared<King>();
         units.push_back(unit);
     }
 }

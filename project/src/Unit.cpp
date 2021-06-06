@@ -30,35 +30,35 @@ char Unit::getUnitType() {
 
 int Unit::calculateRow(FieldPtr field) {
     int row;
-    if(field->getNr()>=0 && field->getNr()<=7)
+    if(field->getNr()>=1 && field->getNr()<=8)
     {
         row=0;
     }
-    else if(field->getNr()>=8 && field->getNr()<=15)
+    else if(field->getNr()>=9 && field->getNr()<=16)
     {
         row=1;
     }
-    else if(field->getNr()>=16 && field->getNr()<=23)
+    else if(field->getNr()>=17 && field->getNr()<=24)
     {
         row=2;
     }
-    else if(field->getNr()>=24 && field->getNr()<=31)
+    else if(field->getNr()>=25 && field->getNr()<=32)
     {
         row=3;
     }
-    else if(field->getNr()>=32 && field->getNr()<=39)
+    else if(field->getNr()>=33 && field->getNr()<=40)
     {
         row=4;
     }
-    else if(field->getNr()>=40 && field->getNr()<=47)
+    else if(field->getNr()>=41 && field->getNr()<=48)
     {
         row=5;
     }
-    else if(field->getNr()>=48 && field->getNr()<=55)
+    else if(field->getNr()>=49 && field->getNr()<=56)
     {
         row=6;
     }
-    else if(field->getNr()>=56 && field->getNr()<=63)
+    else if(field->getNr()>=57 && field->getNr()<=64)
     {
         row=7;
     }
@@ -69,47 +69,47 @@ int Unit::calculateRow(FieldPtr field) {
 int Unit::calculateCol(FieldPtr field) {
     int row;
     int col;
-    if(field->getNr()>=0 && field->getNr()<=7)
+    if(field->getNr()>=1 && field->getNr()<=8)
     {
         row=0;
         col=field->getNr();
     }
-    else if(field->getNr()>=8 && field->getNr()<=15)
+    else if(field->getNr()>=9 && field->getNr()<=16)
     {
         row=1;
         col=field->getNr()-row*8;
     }
-    else if(field->getNr()>=16 && field->getNr()<=23)
+    else if(field->getNr()>=17 && field->getNr()<=24)
     {
         row=2;
         col=field->getNr()-row*8;
     }
-    else if(field->getNr()>=24 && field->getNr()<=31)
+    else if(field->getNr()>=25 && field->getNr()<=32)
     {
         row=3;
         col=field->getNr()-row*8;
     }
-    else if(field->getNr()>=32 && field->getNr()<=39)
+    else if(field->getNr()>=33 && field->getNr()<=40)
     {
         row=4;
         col=field->getNr()-row*8;
     }
-    else if(field->getNr()>=40 && field->getNr()<=47)
+    else if(field->getNr()>=41 && field->getNr()<=48)
     {
         row=5;
         col=field->getNr()-row*8;
     }
-    else if(field->getNr()>=48 && field->getNr()<=55)
+    else if(field->getNr()>=49 && field->getNr()<=56)
     {
         row=6;
         col=field->getNr()-row*8;
     }
-    else if(field->getNr()>=56 && field->getNr()<=63)
+    else if(field->getNr()>=57 && field->getNr()<=64)
     {
         row=7;
         col=field->getNr()-row*8;
     }
-    return col;
+    return col-1;
 }
 
 

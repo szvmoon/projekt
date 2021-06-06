@@ -16,7 +16,7 @@ void Basic::play(PlayerPtr player1, PlayerPtr player2, BoardPtr board) {
     int turn=3;
     bool isUnitYours=true;
 
-  /*  ///Wstep do rozgrywki
+    ///Wstep do rozgrywki
     std::cout << "___________ROZPOCZECIE GRY___________\n";
     std::cout << "Gracz numer 1. Twoje jednostki sa czerwone. Podaj swoje imie:\n";
     std::cin >> name;
@@ -24,7 +24,7 @@ void Basic::play(PlayerPtr player1, PlayerPtr player2, BoardPtr board) {
     std::cout << "Gracz numer 2. Twoje jednostki sa zolte. Podaj swoje imie:\n";
     std::cin >> name;
     player2->setName(name);
-    std::cout << "Oto plansza gry, pierwszy ruch wykonuje Gracz 1.\n";*/
+    std::cout << "Oto plansza gry, pierwszy ruch wykonuje Gracz 1.\n";
 
     ///glowny przebieg gry
     do {
@@ -79,7 +79,7 @@ void Basic::play(PlayerPtr player1, PlayerPtr player2, BoardPtr board) {
                                         board->getField(TextInterface::calculateField(end_field)))) {
                     std::cout << "Zbito jednostke przeciwnika.\n";
                 }
-                turn=3;
+                turn=4;
                 break;
 
             case 2:
