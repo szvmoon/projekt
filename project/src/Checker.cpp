@@ -48,13 +48,13 @@ bool Checker::isMoveLegal(FieldPtr start, FieldPtr destination) {
 
     if(abs(destination->getNr()-start->getNr()) == 7 || abs(destination->getNr()-start->getNr())== 9)
     {
-        if(start->getNr()%8 != 0 && (start->getNr()+1)%8!=0) {
+        if(start->getNr()%8 != 0 && (start->getNr())%8!=0) {
             cout << "legalny";
             return true;
         }
 
         if(abs(destination->getNr()-start->getNr()) == 9) {
-            if(start->getNr()+1%8==0) {
+            if(start->getNr()%8==0) {
                 cout << "legalny";
                 return true;
             }
