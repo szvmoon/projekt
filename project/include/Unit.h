@@ -17,6 +17,10 @@ public:
     bool isAlive() const;
     void setAlive(bool alive);
     virtual bool isMoveLegal(FieldPtr start,FieldPtr destination);
+    virtual bool isPromotionAvailable();
+    virtual char getUnitType();
+    int calculateRow(FieldPtr field);
+    int calculateCol(FieldPtr field);
 };
 
 

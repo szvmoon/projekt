@@ -10,6 +10,7 @@ Basic::Basic() {}
 Basic::~Basic() {}
 
 void Basic::play(PlayerPtr player1, PlayerPtr player2, BoardPtr board) {
+    /*
     board->setUpPieces(board,player1,player2);
     TextInterface::displayBoard(board, player1, player2);
     int start_n, end_n;
@@ -49,14 +50,16 @@ void Basic::play(PlayerPtr player1, PlayerPtr player2, BoardPtr board) {
     if (koniec) {
         std::cout << "koniec gry";
     }
-
+*/
     //basic.cpp z tego co pisał szymon sb sprawdzał
 
-  // board->setUpPieces(board,player1,player2);
-  //  TextInterface::displayBoard(board, player1, player2);
- //  if(board->getField(16)->getUnit()->isMoveLegal(board->getField(16),board->getField(23)))
-   //TextInterface::move(board->getField(26),board->getField(23));
-  //  TextInterface::displayBoard(board, player1, player2);
+   board->setUpPieces(board,player1,player2);
+   TextInterface::displayBoard(board, player1, player2);
+   if(board->getField(15)->getUnit()->isMoveLegal(board->getField(15),board->getField(24)))
+   TextInterface::move(board->getField(15),board->getField(24));
+    //if(board->getField(23)->getUnit()->isMoveLegal(board->getField(23),board->getField(32)))
+        //TextInterface::move(board->getField(23),board->getField(32));
+   TextInterface::displayBoard(board, player1, player2);
 
 }
 

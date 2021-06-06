@@ -5,6 +5,7 @@
 
 #include "Player.h"
 #include <memory>
+#include <King.h>
 
 
 using namespace std;
@@ -36,6 +37,8 @@ int Player::countPlayerUnits() const {
     }
     return aliveunits;
 }
+
+
 
 
 

@@ -11,6 +11,8 @@ public:
     Checker();
     ~Checker();
     bool isMoveLegal(FieldPtr start,FieldPtr destination) override;
+    bool isPromotionAvailable() override;
+    char getUnitType() override;
 
 
 };

@@ -21,7 +21,6 @@ public:
     UnitPtr getUnit();
     void setNr(int _nr);
 
-
 };
 
 
