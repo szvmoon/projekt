@@ -18,8 +18,9 @@ public:
     TextInterface();
     virtual ~TextInterface();
     static void displayBoard(BoardPtr board, PlayerPtr player1, PlayerPtr player2);
-    static void move(FieldPtr start, FieldPtr destination);
-    static int calculateField(char &row, int &column);
+    static bool move(FieldPtr start, FieldPtr destination);
+    static int calculateField(std::string &field);
+    static bool isFieldCorrect(std::string &field/*char &column, int &row*/);
 
 
 };

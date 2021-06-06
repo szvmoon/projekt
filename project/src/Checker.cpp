@@ -11,6 +11,38 @@ Checker::Checker() {}
 
 Checker::~Checker() {}
 
+/*
+bool Checker::isMoveLegal(FieldPtr start, FieldPtr destination) {
+
+    if(abs(destination->getNr()-start->getNr()) == 7 || abs(destination->getNr()-start->getNr())== 9)
+    {
+        if(start->getNr()%8 != 0 && (start->getNr()+1)%8!=0) {
+            std::cout << "legalny\n";
+            return true;
+        }
+
+        if(abs(destination->getNr()-start->getNr()) == 9) {
+            if(start->getNr()+1%8==0) {
+                std::cout << "legalny\n";
+
+                return true;
+            }
+        }
+        if(abs(destination->getNr()-start->getNr()) == 7) {
+            if(start->getNr()%8==0) {
+                std::cout << "legalny\n";
+                return true;
+            }
+        }
+    }
+        std::cout << "nielegalny\n";
+        return false;
+
+}
+*/
+
+
+
 bool Checker::isMoveLegal(FieldPtr start, FieldPtr destination) {
 
 
@@ -36,12 +68,4 @@ bool Checker::isMoveLegal(FieldPtr start, FieldPtr destination) {
     }
     cout<<"nielegalny";
     return false;
-}
-
-bool Checker::isPromotionAvailable() {
-    return true;
-}
-
-char Checker::getUnitType() {
-    return 'C';
 }

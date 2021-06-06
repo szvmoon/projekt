@@ -22,8 +22,7 @@ public:
     UnitPtr getUnit(int id);
     const std::string &getName() const;
     int countPlayerUnits() const;
-
-
+    void setName(const std::string &name);
 
 
 };

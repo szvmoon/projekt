@@ -38,6 +38,10 @@ int Player::countPlayerUnits() const {
     return aliveunits;
 }
 
+void Player::setName(const string &name) {
+    Player::name = name;
+}
+
 
 
 
